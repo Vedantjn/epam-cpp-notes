@@ -12,6 +12,10 @@ int main() {
     // Pointer to array of 4 integers
     int (*p)[4];
     p = arr;
+    printf("%d", *p);
+    // int (*p);
+    // p = arr;
+    // printf("%d", *p);
 
     
     // Alternative way using array notation

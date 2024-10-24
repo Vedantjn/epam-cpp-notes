@@ -15,9 +15,13 @@ int main() {
     printf("Value of num: %d\n", num);
     
     // Array with pointers
-    int arr[] = {1, 2, 3, 4, 5};
+    int arr[] = {22, 221, 53453, 2344, 555};
     int *arrPtr = arr; // Assign the address of the first element to the pointer, this is equicalent to arrPtr = &arr[0]
     
+    printf("%d\n", *arrPtr);
+    printf("%d\n", *arrPtr + 1);
+    printf("%d\n", *(arrPtr + 1));
+
     printf("\nArray elements using pointer:\n");
     for(int i = 0; i < 5; i++) {
         printf("%d ", *(arrPtr + i));
@@ -45,43 +49,44 @@ int main() {
 }
 
 // --------------------------------------------------------
-#include <stdio.h>
 
-void pointersWithDifferentTypes() {
-    char ch = 'A';
-    char *charPtr = &ch;
-    printf("\nChar pointer:\n");
-    printf("Value of ch: %c\n", ch);
-    printf("Address of ch: %p\n", &ch);
-    printf("Address of ch: %p\n", charPtr);
-    printf("Value pointed by charPtr: %c\n", *charPtr);
-    
-    float fl = 3.14f;
-    float *floatPtr = &fl;
-    printf("\nFloat pointer:\n");
-    printf("Value of fl: %.2f\n", fl);
-    printf("Value pointed by floatPtr: %.2f\n", *floatPtr);
-    
-    double db = 3.14159;
-    double *doublePtr = &db;
-    printf("\nDouble pointer:\n");
-    printf("Value of db: %.5f\n", db);
-    printf("Value pointed by doublePtr: %.5f\n", *doublePtr);
-    
-    char str[] = "Hello";
-    char *strPtr = str;
-    printf("\nString pointer:\n");
-    printf("Original string: %s\n", str);
-    printf("Using pointer: ");
-    while(*strPtr != '\0') {
-        printf("%c", *strPtr);
-        strPtr++;
-    }
+// #include <stdio.h>
 
-    printf("\n");
-}
+// void pointersWithDifferentTypes() {
+//     char ch = 'A';
+//     char *charPtr = &ch;
+//     printf("\nChar pointer:\n");
+//     printf("Value of ch: %c\n", ch);
+//     printf("Address of ch: %p\n", &ch);
+//     printf("Address of ch: %p\n", charPtr);
+//     printf("Value pointed by charPtr: %c\n", *charPtr);
+    
+//     float fl = 3.14f;
+//     float *floatPtr = &fl;
+//     printf("\nFloat pointer:\n");
+//     printf("Value of fl: %.2f\n", fl);
+//     printf("Value pointed by floatPtr: %.2f\n", *floatPtr);
+    
+//     double db = 3.14159;
+//     double *doublePtr = &db;
+//     printf("\nDouble pointer:\n");
+//     printf("Value of db: %.5f\n", db);
+//     printf("Value pointed by doublePtr: %.5f\n", *doublePtr);
+    
+//     char str[] = "Hello";
+//     char *strPtr = str;
+//     printf("\nString pointer:\n");
+//     printf("Original string: %s\n", str);
+//     printf("Using pointer: ");
+//     while(*strPtr != '\0') {
+//         printf("%c", *strPtr);
+//         strPtr++;
+//     }
 
-int main() {
-    pointersWithDifferentTypes();
-    return 0;
-}
+//     printf("\n");
+// }
+
+// int main() {
+//     pointersWithDifferentTypes();
+//     return 0;
+// }
