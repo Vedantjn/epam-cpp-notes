@@ -50,43 +50,43 @@ int main() {
 
 // --------------------------------------------------------
 
-// #include <stdio.h>
+#include <stdio.h>
 
-// void pointersWithDifferentTypes() {
-//     char ch = 'A';
-//     char *charPtr = &ch;
-//     printf("\nChar pointer:\n");
-//     printf("Value of ch: %c\n", ch);
-//     printf("Address of ch: %p\n", &ch);
-//     printf("Address of ch: %p\n", charPtr);
-//     printf("Value pointed by charPtr: %c\n", *charPtr);
+void pointersWithDifferentTypes() {
+    char ch = 'A';
+    char *charPtr = &ch;
+    printf("\nChar pointer:\n");
+    printf("Value of ch: %c\n", ch);
+    printf("Address of ch: %p\n", &ch);
+    printf("Address of ch: %p\n", charPtr);
+    printf("Value pointed by charPtr: %c\n", *charPtr);
     
-//     float fl = 3.14f;
-//     float *floatPtr = &fl;
-//     printf("\nFloat pointer:\n");
-//     printf("Value of fl: %.2f\n", fl);
-//     printf("Value pointed by floatPtr: %.2f\n", *floatPtr);
+    float fl = 3.14f;
+    float *floatPtr = &fl;
+    printf("\nFloat pointer:\n");
+    printf("Value of fl: %.2f\n", fl);
+    printf("Value pointed by floatPtr: %.2f\n", *floatPtr);
     
-//     double db = 3.14159;
-//     double *doublePtr = &db;
-//     printf("\nDouble pointer:\n");
-//     printf("Value of db: %.5f\n", db);
-//     printf("Value pointed by doublePtr: %.5f\n", *doublePtr);
+    double db = 3.14159;
+    double *doublePtr = &db;
+    printf("\nDouble pointer:\n");
+    printf("Value of db: %.5f\n", db);
+    printf("Value pointed by doublePtr: %.5f\n", *doublePtr);
     
-//     char str[] = "Hello";
-//     char *strPtr = str;
-//     printf("\nString pointer:\n");
-//     printf("Original string: %s\n", str);
-//     printf("Using pointer: ");
-//     while(*strPtr != '\0') {
-//         printf("%c", *strPtr);
-//         strPtr++;
-//     }
+    char str[] = "Hello";
+    char *strPtr = str;
+    printf("\nString pointer:\n");
+    printf("Original string: %s\n", str);
+    printf("Using pointer: ");
+    while(*strPtr != '\0') {
+        printf("%c", *strPtr);
+        strPtr++;
+    }
 
-//     printf("\n");
-// }
+    printf("\n");
+}
 
-// int main() {
-//     pointersWithDifferentTypes();
-//     return 0;
-// }
+int main() {
+    pointersWithDifferentTypes();
+    return 0;
+}
