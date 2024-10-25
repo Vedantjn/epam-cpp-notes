@@ -23,4 +23,4 @@
 - 3D Pointers
 - Double Pointer
 - Macros
-- SOLID Principles
+- 
