@@ -28,23 +28,21 @@ int main() {
     }
     
     // The expression arrPtr + i performs pointer arithmetic. In C, when you add an integer i to a pointer, it moves the pointer forward by i elements, not by i bytes. This is because the pointer keeps track of the type it points to. In this case:
-
     // arrPtr + i points to the (i+1)th element of the array, because pointer arithmetic takes the size of the type into account.
     // If arrPtr points to the first element (i.e., arr[0]), then:
-    // When i = 0, arrPtr + 0 points to arr[0]
-    // When i = 1, arrPtr + 1 points to arr[1]
-    // When i = 2, arrPtr + 2 points to arr[2]
+    // When i = 0, arrPtr + 0 points to arr[0] (22)
+    // When i = 1, arrPtr + 1 points to arr[1] (221)
+    // When i = 2, arrPtr + 2 points to arr[2] (53453)
     // And so on...
 
 
     // Dereferencing: The asterisk * operator is used to dereference the pointer. This means that *(arrPtr + i) retrieves the value at the address that arrPtr + i points to.
 
     // When you dereference it:
-    // *(arrPtr + 0) retrieves the value of arr[0] (which is 1).
-    // *(arrPtr + 1) retrieves the value of arr[1] (which is 2).
-    // *(arrPtr + 2) retrieves the value of arr[2] (which is 3).
+    // *(arrPtr + 0) retrieves the value of arr[0] (which is 22)
+    // *(arrPtr + 1) retrieves the value of arr[1] (which is 221)
+    // *(arrPtr + 2) retrieves the value of arr[2] (which is 53453)
     // And so on...
-
     return 0;
 }
 

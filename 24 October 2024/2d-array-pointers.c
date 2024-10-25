@@ -81,6 +81,7 @@ int main() {
   }
 
 // -------------------------------------------------------------------
+
 #include <stdio.h>
 
 int main() {
@@ -118,26 +119,25 @@ int main() {
 }
 
 // ----------------------------------------------------------------------
-  #include <stdio.h>
 
-  int main() {
-      int arr[3][3] = {{112, 33, 233}, {122, 535, 22}, {66, 3445, 3}};
+ #include <stdio.h>
 
-      int *ptr;
-      ptr = &arr[0][0];
-
-      // Prints address of first element using pointer
-      printf("%x\n", ptr);
-      // Prints base address of array (same as first element)
-      printf("%x\n", arr);
-      // Prints address of entire array
-      printf("%x\n", &arr);
-      // Prints address of first row (same as base address)
-      printf("%x\n", arr[0]);
-      // Prints address of first row (same as base address)
-      printf("%x\n", *arr);
-      // Prints address of first element
-      printf("%x\n", &arr[0][0]);
-    
-
-  }
+ int main() {
+     int arr[3][3] = {{112, 33, 233}, {122, 535, 22}, {66, 3445, 3}};
+     int *ptr;
+     ptr = &arr[0][0];
+     
+     // Prints address of first element using pointer
+     printf("%x\n", ptr);
+     // Prints base address of array (same as first element)
+     printf("%x\n", arr);
+     // Prints address of entire array
+     printf("%x\n", &arr);
+     // Prints address of first row (same as base address)
+     printf("%x\n", arr[0]);
+     // Prints address of first row (same as base address)
+     printf("%x\n", *arr);
+     // Prints address of first element
+     printf("%x\n", &arr[0][0]);
+     
+ }
