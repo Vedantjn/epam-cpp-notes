@@ -14,4 +14,4 @@
 - Arrays and Pointers
 - Basic Input/Output Operations
 - Predefined and Userdefined datatypes
-- pointers and 2d arrays
+- Pointers and 2d Arrays
