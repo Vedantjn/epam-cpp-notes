@@ -126,7 +126,7 @@ int main() {
      int arr[3][3] = {{112, 33, 233}, {122, 535, 22}, {66, 3445, 3}};
      int *ptr;
      ptr = &arr[0][0];
-     
+
      // Prints address of first element using pointer
      printf("%x\n", ptr);
      // Prints base address of array (same as first element)
@@ -141,3 +141,21 @@ int main() {
      printf("%x\n", &arr[0][0]);
      
  }
+
+// ----------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    int arr[3][3] = {{112, 33, 233}, {122, 535, 22}, {66, 3445, 3}};
+    int (*ptr)[3] = arr; // Pointer to an array of 3 integers
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", *(*(ptr + i) + j));
+        }
+        printf("\n");
+    }
+
+    return 0;
+}

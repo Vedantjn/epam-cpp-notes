@@ -15,3 +15,12 @@
 - Basic Input/Output Operations
 - Predefined and Userdefined datatypes
 - Pointers and 2d Arrays
+- Ranges of Datatypes
+- Variadic Functions
+- Scope of Variables
+- Custom Header Files
+- Modularity
+- 3D Pointers
+- Double Pointer
+- Macros
+- SOLID Principles
