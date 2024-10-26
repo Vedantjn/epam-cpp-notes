@@ -24,3 +24,7 @@
 - Double Pointer
 - Macros
 - Memory Management Functions   
+- Struct
+- Bit Fields
+- Struct Padding
+- Unions
