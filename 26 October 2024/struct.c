@@ -1,32 +1,39 @@
+// Size of structure is determined by its members
 #include <stdio.h>
 #include <string.h>
 
 struct Student {
-    char name[50];
-    int rollNumber;
-    float marks;
-};
+    char name[50];     // 50 bytes
+    int rollNumber;    // 4 bytes
+    float marks;       // 4 bytes
+};  // Total: 58 bytes (may include padding)
 
 struct Point {
-    int x;
-    int y;
-};
+    int x;            // 4 bytes
+    int y;            // 4 bytes
+};  // Total: 8 bytes
 
 struct Address {
-    char street[50];
-    char city[30];
-    char state[20];
-    int pincode;
-};
+    char street[50];   // 50 bytes
+    char city[30];     // 30 bytes
+    char state[20];    // 20 bytes
+    int pincode;       // 4 bytes
+};  // Total: 104 bytes (may include padding)
 
 struct Employee {
-    char name[50];
-    int id;
-    struct Address addr;  // nested structure
-    float salary;
-};
+    char name[50];     // 50 bytes
+    int id;            // 4 bytes
+    struct Address addr;  // nested structure (104 bytes)
+    float salary;      // 4 bytes
+};  // Total: 162 bytes (may include padding)
 
 int main() {
+    // Print sizes of each structure
+    printf("Size of Student structure: %zu bytes\n", sizeof(struct Student));
+    printf("Size of Point structure: %zu bytes\n", sizeof(struct Point));
+    printf("Size of Address structure: %zu bytes\n", sizeof(struct Address));
+    printf("Size of Employee structure: %zu bytes\n\n", sizeof(struct Employee));
+
     // Basic structure usage
     struct Student student1;
     strcpy(student1.name, "Vedant Jain");
@@ -66,6 +73,12 @@ int main() {
 }
 
 // Output:
+
+// Size of Student structure: 60 bytes
+// Size of Point structure: 8 bytes    
+// Size of Address structure: 104 bytes
+// Size of Employee structure: 164 bytes
+
 // Student Details:
 // Name: Vedant Jain
 // Roll Number: 101
