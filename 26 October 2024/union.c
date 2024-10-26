@@ -56,3 +56,33 @@ int main() {
 
     return 0;
 }
+
+// Output:
+
+//  1:
+// data.i: 10
+// data.f: 0.000000
+// data.str: 
+
+
+//  2:
+// data.i: 1130135552
+// data.f: 220.500000
+// data.str:
+
+//  3:
+// data.i: 1917853763
+// data.f: 4122360580327794860452759994368.000000
+// data.str: C Programming
+
+//  4:
+// data.i: -42
+// data.f: -nan
+// data.str: ╓   ogramming
+
+//  5:
+// data.i: 1078530011
+// data.f: 3.141593
+// data.str: █I@ogramming
+
+// Size of union: 20 bytes

@@ -28,3 +28,5 @@
 - Bit Fields
 - Struct Padding
 - Unions
+- Files
+- stdin, stdout, stderror

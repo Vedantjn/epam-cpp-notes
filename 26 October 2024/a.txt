@@ -1,0 +1,2 @@
+New content with w+
+Appending with a+

@@ -1,31 +1,43 @@
-// Size of structure is determined by its members
+// Size of structure is determined by its members and padding rules
 #include <stdio.h>
 #include <string.h>
 
+// Padding is added based on:
+// 1. CPU architecture (32-bit vs 64-bit)
+// 2. Compiler alignment requirements
+// 3. Structure member data types and their natural alignment
+// 4. The largest member's alignment requirement
+// 5. Rule of thumb: members are aligned to their own size boundaries
+// 6. Padding is added between members and at the end to satisfy alignment
+
+// Let's calculate padding for each structure:
 struct Student {
     char name[50];     // 50 bytes
+    // 2 bytes padding here to align int to 4-byte boundary (50 % 4 = 2 padding needed)
     int rollNumber;    // 4 bytes
     float marks;       // 4 bytes
-};  // Total: 58 bytes (may include padding)
+};  // Total: 50 + 2(padding) + 4 + 4 = 60 bytes
 
 struct Point {
-    int x;            // 4 bytes
-    int y;            // 4 bytes
-};  // Total: 8 bytes
+    int x;            // 4 bytes (starts at offset 0)
+    int y;            // 4 bytes (starts at offset 4)
+};  // Total: 4 + 4 = 8 bytes (perfectly aligned, no padding needed)
 
 struct Address {
     char street[50];   // 50 bytes
-    char city[30];     // 30 bytes
-    char state[20];    // 20 bytes
-    int pincode;       // 4 bytes
-};  // Total: 104 bytes (may include padding)
+    char city[30];     // 30 bytes (starts at offset 50)
+    char state[20];    // 20 bytes (starts at offset 80)
+    // 0 bytes padding here because 100 % 4 = 0 (already aligned)
+    int pincode;       // 4 bytes (starts at offset 100)
+};  // Total: 50 + 30 + 20 + 4 = 104 bytes
 
 struct Employee {
     char name[50];     // 50 bytes
+    // 2 bytes padding here to align int to 4-byte boundary (50 % 4 = 2 padding needed)
     int id;            // 4 bytes
-    struct Address addr;  // nested structure (104 bytes)
-    float salary;      // 4 bytes
-};  // Total: 162 bytes (may include padding)
+    struct Address addr;  // 104 bytes (starts at offset 56, already aligned)
+    float salary;      // 4 bytes (starts at offset 160)
+};  // Total: 50 + 2(padding) + 4 + 104 + 4 = 164 bytes
 
 int main() {
     // Print sizes of each structure
