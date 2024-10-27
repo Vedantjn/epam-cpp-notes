@@ -2,15 +2,15 @@
 File naming rules for C:
 
 1. File names should end with .c for source files and .h for header files
-   Example: my_program.c, utilities.h
+   : my_program.c, utilities.h
 2. Use lowercase letters for file names (convention)
-   Example: my_script.c, my_header.h
+   : my_script.c, my_header.h
 3. Avoid spaces - use underscores instead
-   Example: user_data.c, file_operations.h
+   : user_data.c, file_operations.h
 4. File names should be descriptive of the code's purpose
-   Example: string_utilities.c, math_operations.h
+   : string_utilities.c, math_operations.h
 5. Keep names concise but meaningful
-   Example: sort.c, search.h
+   : sort.c, search.h
 6. Valid characters include:
    - Letters (a-z)
    - Numbers (0-9) 
@@ -112,7 +112,7 @@ int main() {
     fclose(file);
 
     //===========================================
-    // fscanf Example
+    // fscanf 
     //===========================================
 
     // Create a file with formatted data
@@ -171,6 +171,10 @@ int main() {
         return 1;
     }
 
+    // SEEK_SET: Beginning of the file.
+    // SEEK_CUR: Current position in the file.
+    // SEEK_END: End of the file.
+
     ch = fgetc(file);
     printf("\nFirst character: %c\n", ch);
 
@@ -205,6 +209,10 @@ int main() {
     //===========================================
     // Buffer Management (fflush)
     //===========================================
+
+    // fflush(stdout);	Ensures output data is displayed immediately
+    // fflush(stderr);	Ensures error messages appear instantly (useful in debugging)
+    // fflush(file);	Writes file data to disk immediately
 
     file = fopen("flush_example.txt", "w");
     if (file == NULL) {
