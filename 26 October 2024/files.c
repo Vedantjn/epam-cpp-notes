@@ -33,7 +33,6 @@ that make code more maintainable and portable across systems.
 
 #include <stdio.h>
 
-// Structure definition moved to top for better organization
 struct Person {
     char name[20];
     int age;
@@ -46,19 +45,19 @@ int main() {
     char ch;
 
     //===========================================
-    // Standard Streams Examples
+    // Standard Streams 
     //===========================================
     
-    // stdin example - reading from standard input
+    // stdin  - reading from standard input
     char input[100];
     printf("Enter some text: ");
     fgets(input, sizeof(input), stdin);
     fprintf(stdout, "You entered: %s", input);
     
-    // stdout example - writing to standard output
+    // stdout  - writing to standard output
     fprintf(stdout, "This is written to stdout\n");
     
-    // stderr example - writing error messages
+    // stderr  - writing error messages
     fprintf(stderr, "This is an error message written to stderr\n");
     
     // Using stdin with fscanf
@@ -143,7 +142,7 @@ int main() {
     fclose(file);
 
     //===========================================
-    // Character Writing Examples (fputc)
+    // Character Writing  (fputc)
     //===========================================
 
     file = fopen("fputc_example.txt", "w");

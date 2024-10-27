@@ -3,6 +3,7 @@
     "terminal.integrated.suggest.enabled": true,
     "files.associations": {
         "*.ejs": "html",
-        "charconv": "c"
+        "charconv": "c",
+        "stdio.h": "c"
     }
 }
