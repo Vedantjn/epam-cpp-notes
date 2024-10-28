@@ -36,5 +36,21 @@ int main() {
     printf("Size of void pointer: %zu bytes\n", sizeof(void*));
     printf("Size of _Bool: %zu bytes\n", sizeof(_Bool));
 
+    // Size of char: 1 bytes
+    // Size of unsigned char: 1 bytes
+    // Size of short: 2 bytes
+    // Size of unsigned short: 2 bytes
+    // Size of int: 4 bytes
+    // Size of unsigned int: 4 bytes
+    // Size of long: 4 bytes
+    // Size of unsigned long: 4 bytes
+    // Size of long long: 8 bytes
+    // Size of unsigned long long: 8 bytes
+    // Size of float: 4 bytes
+    // Size of double: 8 bytes
+    // Size of long double: 16 bytes
+    // Size of void pointer: 8 bytes
+    // Size of _Bool: 1 bytes
+
     return 0;
 }
