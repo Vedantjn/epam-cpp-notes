@@ -255,6 +255,9 @@ int main() {
         return 1;
     }
     fprintf(file, "New content with w+\n");
+    // The rewind function in C resets the position of a file pointer back to the 
+    // beginning of the file. It is useful when you want to start reading or writing
+    //  a file from the beginning without reopening it.
     rewind(file);
     fgets(text, 100, file);
     printf("Content read: %s", text);

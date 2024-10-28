@@ -4,6 +4,15 @@
     "files.associations": {
         "*.ejs": "html",
         "charconv": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "array": "c",
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "iterator": "c",
+        "string_view": "c",
+        "format": "c",
+        "span": "c"
     }
 }
