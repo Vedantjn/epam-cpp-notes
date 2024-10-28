@@ -70,10 +70,12 @@ int main() {
     
     // Print using different methods
     printf("Multibyte string: %s\n", mb_str);
+    // %ls is used for printing wide character strings (wchar_t*)
     wprintf(L"Wide string: %ls\n", wide_str);
     wprintf(L"Copied string: %ls\n", dest);
     
     // Get lengths
+    // %zu is used for printing size_t values (unsigned sizes and lengths)
     printf("Multibyte length in bytes: %zu\n", strlen(mb_str));
     printf("Wide string length in characters: %zu\n", wcslen(wide_str));
     
