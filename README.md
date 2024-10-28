@@ -30,3 +30,8 @@
 - Unions
 - Files
 - stdin, stdout, stderror
+- cin, cout, cerror
+- c_string, getline, .length(), .size()
+- Multibyte string
+- Unicode string
+- wchar_t, wstring, wcout, wprintf, setlocale, wstrcpy

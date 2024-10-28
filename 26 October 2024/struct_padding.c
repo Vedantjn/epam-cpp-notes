@@ -112,3 +112,36 @@ int main() {
 // name  (1 byte):  Byte 0  [3 bytes padding]       
 // roll  (4 bytes): Bytes 4-7
 // grade (1 byte):  Byte 8  [3 bytes padding]   
+
+// ---------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+struct Example {
+    char a;       // 1 byte
+    int b;        // 4 bytes (typically aligned to 4 bytes)
+    char c;       // 1 byte
+    double d;     // 8 bytes (typically aligned to 8 bytes)
+};
+
+int main() {
+    Example ex;
+    cout << "Size of struct Example: " << sizeof(ex) << " bytes" << endl;
+    return 0;
+}
+
+// Explanation
+// In the Example struct:
+
+// char a occupies 1 byte, but since the next member (int b) requires alignment to 4 bytes, there may be 3 bytes of padding after a.
+// int b requires 4 bytes.
+// char c occupies 1 byte, and padding may be added after it to align double d to 8 bytes.
+// double d requires 8 bytes.
+// The size of Example can end up larger than the sum of its members due to padding.
+
+// Output
+// The output might show:
+
+// Size of struct Example: 24 bytes
+// This value may vary by compiler and platform, but it reflects the added padding bytes to maintain alignment.
