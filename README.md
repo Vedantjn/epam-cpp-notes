@@ -1,6 +1,6 @@
-## I'll update the topics covered over here
+## Course Topics Overview
 
-#1. For the first week, we focused majorly on C and concepts related to it like:
+### Week 1: C Programming Fundamentals
 
 - Variables and Data Types
 - Control Flow (if-else, loops)
@@ -13,8 +13,8 @@
 - Error Functions 
 - Arrays and Pointers
 - Basic Input/Output Operations
-- Predefined and Userdefined datatypes
-- Pointers and 2d Arrays
+- Predefined and Userdefined Datatypes
+- Pointers and 2D Arrays
 - Ranges of Datatypes
 - Variadic Functions
 - Scope of Variables
@@ -23,21 +23,38 @@
 - 3D Pointers
 - Double Pointer
 - Macros
-- Memory Management Functions   
-- Struct
+- Memory Management Functions  
+
+### Week 2: C++ Programming Concepts
+
+- Structures
 - Bit Fields
-- Struct Padding
+- Structure Padding
 - Unions
-- Files
-- stdin, stdout, stderror
-- cin, cout, cerror
-- c_string, getline, .length(), .size()
-- Multibyte string
-- Unicode string
-- wchar_t, wstring, wcout, wprintf, setlocale, wstrcpy
-- stringstream
-- .length, .capacity, .maxsize
-- new, delete, malloc, free
-- Overloading new, delete
-- nullptr, NULL
+- File Operations
+- Standard I/O Streams (stdin, stdout, stderr)
+- C++ I/O Streams (cin, cout, cerr)
+- String Operations
+  - c_string
+  - getline()
+  - length() and size()
+- String Types
+  - Multibyte Strings
+  - Unicode Strings
+  - Wide Characters (wchar_t, wstring)
+- Wide Character Operations
+  - wcout
+  - wprintf
+  - setlocale
+  - wstrcpy
+- String Stream Operations
+- String Capacity Management
+  - length
+  - capacity
+  - maxsize
+- Memory Management
+  - new and delete operators
+  - malloc and free functions
+  - Operator overloading for new/delete
+- Null Pointers (nullptr, NULL)
 - References
