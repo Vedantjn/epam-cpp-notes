@@ -44,6 +44,7 @@
 #include <wchar.h>
 #include <locale.h>
 #include <string.h>
+// #include <iostream>
 
 int main() {
     // Set locale for Unicode support
@@ -70,6 +71,7 @@ int main() {
     
     // Print using different methods
     printf("Multibyte string: %s\n", mb_str);
+    // cout << mb_str << endl;
     // %ls is used for printing wide character strings (wchar_t*)
     wprintf(L"Wide string: %ls\n", wide_str);
     wprintf(L"Copied string: %ls\n", dest);
