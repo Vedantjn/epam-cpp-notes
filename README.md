@@ -58,3 +58,13 @@
   - Operator overloading for new/delete
 - Null Pointers (nullptr, NULL)
 - References
+- Member variables, Member functions
+- Constructor
+- Copy constructor, Parameterised constructor, Default constructor, Assignment
+- Constructor Initialisation list
+- Destructor
+- Default copy constructor
+- Constructors and Destructors in Inheritance
+- Deep vs Shallow copy
+- What if we don't use & in copy constructor
+- const in copy constructor
