@@ -35,3 +35,9 @@
 - Multibyte string
 - Unicode string
 - wchar_t, wstring, wcout, wprintf, setlocale, wstrcpy
+- stringstream
+- .length, .capacity, .maxsize
+- new, delete, malloc, free
+- Overloading new, delete
+- nullptr, NULL
+- References

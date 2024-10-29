@@ -6,6 +6,8 @@ fastcall            Registers & Stack                 Callee           No       
 thiscall            this in ECX, others on stack      Callee           No                        C++ Member Functions
 vectorcall          Registers (Vector)                Callee           No                        Vector/Math Processing
 
+}
+
 Calling Conventions:
 
 1. cdecl (C Declaration)
