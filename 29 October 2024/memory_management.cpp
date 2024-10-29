@@ -1,14 +1,17 @@
+// Basic Memory Management in C++
 #include <iostream>
 using namespace std;
 
-int main() {
-    // Using new to allocate memory for a single integer
+// Part 1: Basic Single Value Memory Management
+void basicMemoryDemo() {
     int* ptr = new int;
     *ptr = 10;
     cout << "Value stored: " << *ptr << endl;
-    delete ptr;  // Deallocating memory
+    delete ptr;
+}
 
-    // Using new[] for array allocation
+// Part 2: Array Memory Management
+void arrayMemoryDemo() {
     int* arr = new int[5];
     for(int i = 0; i < 5; i++) {
         arr[i] = i + 1;
@@ -20,42 +23,39 @@ int main() {
     }
     cout << endl;
     
-    delete[] arr;  // Deallocating array memory
-
-    // Dynamic allocation of objects
-    class Sample {
-        public:
-            Sample() { cout << "Constructor called" << endl; }
-            ~Sample() { cout << "Destructor called" << endl; }
-    };
-
-    Sample* obj = new Sample();
-    delete obj;
-
-    return 0;
+    delete[] arr;
 }
 
+// Part 3: Object Memory Management
+class Sample {
+    public:
+        Sample() { cout << "Constructor called" << endl; }
+        ~Sample() { cout << "Destructor called" << endl; }
+};
 
-// Demonstrating malloc/free vs new/delete
+void objectMemoryDemo() {
+    Sample* obj = new Sample();
+    delete obj;
+}
 
-#include <iostream>
-#include <cstdlib>  // for malloc and free
-using namespace std;
-
-int main() {
-    // Using malloc (C-style)
+// Part 4: C-style vs C++ Memory Management
+void compareCAndCppMemory() {
+    // C-style memory management
     int* ptr1 = (int*)malloc(sizeof(int));
     *ptr1 = 10;
     cout << "Value stored using malloc: " << *ptr1 << endl;
-    free(ptr1);  // C-style deallocation
+    free(ptr1);
 
-    // Using new (C++ style)
+    // C++ style memory management
     int* ptr2 = new int;
     *ptr2 = 10;
     cout << "Value stored using new: " << *ptr2 << endl;
-    delete ptr2;  // C++ style deallocation
+    delete ptr2;
+}
 
-    // Array allocation with malloc
+// Part 5: Array Memory Management Comparison
+void compareArrayAllocation() {
+    // C-style array allocation
     int* arr1 = (int*)malloc(5 * sizeof(int));
     for(int i = 0; i < 5; i++) {
         arr1[i] = i + 1;
@@ -67,7 +67,7 @@ int main() {
     cout << endl;
     free(arr1);
 
-    // Array allocation with new
+    // C++ style array allocation
     int* arr2 = new int[5];
     for(int i = 0; i < 5; i++) {
         arr2[i] = i + 1;
@@ -78,14 +78,10 @@ int main() {
     }
     cout << endl;
     delete[] arr2;
+}
 
-    // Key differences with objects:
-    class Sample {
-        public:
-            Sample() { cout << "Constructor called" << endl; }
-            ~Sample() { cout << "Destructor called" << endl; }
-    };
-
+// Part 6: Object Construction Comparison
+void compareObjectAllocation() {
     // malloc doesn't call constructor
     Sample* obj1 = (Sample*)malloc(sizeof(Sample));
     free(obj1);
@@ -93,48 +89,93 @@ int main() {
     // new calls constructor and delete calls destructor
     Sample* obj2 = new Sample();
     delete obj2;
+}
 
+// Part 7: Common Memory Management Pitfalls
+void demonstrateCorrectArrayDeletion() {
+    // Correct way to handle array memory
+    int* ptr = new int[10];
+    ptr[0] = 5;  // Set first element
+    delete[] ptr;  // Correct way to delete array
+}
+
+int main() {
+    cout << "=== Basic Memory Management ===" << endl;
+    basicMemoryDemo();
+    
+    cout << "\n=== Array Memory Management ===" << endl;
+    arrayMemoryDemo();
+    
+    cout << "\n=== Object Memory Management ===" << endl;
+    objectMemoryDemo();
+    
+    cout << "\n=== C vs C++ Memory Management ===" << endl;
+    compareCAndCppMemory();
+    
+    cout << "\n=== Array Allocation Comparison ===" << endl;
+    compareArrayAllocation();
+    
+    cout << "\n=== Object Allocation Comparison ===" << endl;
+    compareObjectAllocation();
+    
+    cout << "\n=== Correct Array Deletion Demo ===" << endl;
+    demonstrateCorrectArrayDeletion();
+    
     return 0;
 }
 
-// new vs malloc:
-// 1. new is an operator, malloc() is a function
-// 2. new returns exact data type, malloc returns void*
-// 3. new calls constructor, malloc doesn't
-// 4. new throws bad_alloc exception, malloc returns NULL
-// 5. new can be overloaded, malloc cannot
-// 6. Memory allocated from 'new' can only be deleted by 'delete'
-// 7. Memory allocated from 'malloc' can only be freed by 'free'
 
-// When to use malloc:
-// - When working with C code or C APIs
-// - When you need to reallocate memory (realloc)
-// - When you need to allocate memory of size 0
-// - When you want explicit control over memory alignment
-// - When exception handling is not desired
+// Output:
 
-// When to use new:
-// - In modern C++ code
-// - When working with objects that need constructors
-// - When you want type safety
-// - When you want exception handling
-// - When you need to override memory allocation behavior
-// - When working with STL containers and smart pointers
+// === Basic Memory Management ===
+// Value stored: 10
 
+// === Array Memory Management ===
+// Array values: 1 2 3 4 5
 
+// === Object Memory Management ===
+// Constructor called
+// Destructor called
 
+// === C vs C++ Memory Management ===
+// Value stored using malloc: 10
+// Value stored using new: 10
 
-int* ptr;
-ptr = new int[10];  // Allocates array of 10 integers
+// === Array Allocation Comparison ===
+// Array values (malloc): 1 2 3 4 5
+// Array values (new): 1 2 3 4 5
 
-*ptr = 5;  // Only sets first element to 5
+// === Object Allocation Comparison ===
+// Constructor called
+// Destructor called
 
-delete ptr;  // MEMORY LEAK - Should use delete[] for arrays
-
-// Correct version should be:
-int* ptr;
-ptr = new int[10];
-*ptr = 5;
-delete[] ptr;  // Use delete[] for arrays
+// === Correct Array Deletion Demo ===
 
 
+
+
+/*
+Key Differences between new and malloc:
+1. new is an operator, malloc() is a function
+2. new returns exact data type, malloc returns void*
+3. new calls constructor, malloc doesn't
+4. new throws bad_alloc exception, malloc returns NULL
+5. new can be overloaded, malloc cannot
+6. Memory allocated from 'new' can only be deleted by 'delete'
+7. Memory allocated from 'malloc' can only be freed by 'free'
+
+Use malloc when:
+- Working with C code or C APIs
+- Need to reallocate memory (realloc)
+- Need to allocate memory of size 0
+- Want explicit control over memory alignment
+- Exception handling is not desired
+
+Use new when:
+- Writing modern C++ code
+- Working with objects that need constructors
+- Need type safety
+- Want exception handling
+- Need to override memory allocation behavior
+- Working with STL containers and smart pointers
+*/
