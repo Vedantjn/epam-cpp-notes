@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<cstring>  // for strlen and strcat
+#include<sstream>  // for stringstream
 using namespace std;
 
 int main() {
@@ -50,6 +51,20 @@ int main() {
     cout << "Multiple values: " << 42 << " " << 3.14 << " " << "Hello" << endl;
 
     cerr << "This is an error message" << endl;
+
+    // stringstream example
+    stringstream ss;
+    ss << "Age: " << 25 << ", Score: " << 95.5;
+    string result = ss.str();
+    cout << "Stringstream result: " << result << endl;
+
+    // parsing numbers using stringstream
+    string numStr = "42 3.14";
+    stringstream parser(numStr);
+    int intVal;
+    double doubleVal;
+    parser >> intVal >> doubleVal;
+    cout << "Parsed values: " << intVal << ", " << doubleVal << endl;
     
     return 0;
 }
