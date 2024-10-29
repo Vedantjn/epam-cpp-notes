@@ -13,6 +13,7 @@
         "iterator": "c",
         "string_view": "c",
         "format": "c",
-        "span": "c"
+        "span": "c",
+        "ostream": "cpp"
     }
 }
