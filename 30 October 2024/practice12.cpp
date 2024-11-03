@@ -110,3 +110,17 @@ int main() {
 // Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd38, Value: 300
 // obj4 (affected by obj3 change due to shallow copy):
 // Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd30, Value: 300
+
+
+
+
+// Deep Copy:
+
+// In deep copying, the class creates a new memory allocation for the pointer member p each time an object is copied.
+// The copy constructor (myClass(const myClass &obj)) and overloaded assignment operator (operator=) both implement deep copy by allocating new memory and copying the value of the original object.
+// As a result, changes made to one object do not affect the other, as both objects have independent copies of the data.
+// Shallow Copy:
+
+// Shallow copying is implemented using a static function createShallowCopy, which creates a new object without allocating new memory for p.
+// Instead, obj4.p just points to the same memory as obj3.p.
+// This means that any change in one object's data will affect the other since they share the same memory address.
