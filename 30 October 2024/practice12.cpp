@@ -47,7 +47,11 @@ public:
 
     // Destructor
     ~myClass() {
+        cout << "Address before delete: " << p << endl;  // Print address before deletion
         delete p;  // Destructor to prevent memory leak
+        cout << "Address after delete: " << p << endl;   // Print address after deletion
+        p = nullptr;
+        cout << "Address after nullptr: " << p << endl;  // Print address after setting nullptr
     }
 };
 
@@ -88,29 +92,32 @@ int main() {
 
 // Deep Copy Demonstration:
 // Original object (obj1):
-// Pointer address: 0x23a712f77a0, Address of pointer variable: 0xa2959ffd48, Value: 100
+// Pointer address: 0x23e17f85be0, Address of pointer variable: 0xa7c8dff6e8, Value: 100
 
 // Deep copied object (obj2):
-// Pointer address: 0x23a712f7720, Address of pointer variable: 0xa2959ffd40, Value: 100
+// Pointer address: 0x23e17f85b00, Address of pointer variable: 0xa7c8dff6e0, Value: 100
 
 // After modifying obj1:
 // obj1:
-// Pointer address: 0x23a712f77a0, Address of pointer variable: 0xa2959ffd48, Value: 200
+// Pointer address: 0x23e17f85be0, Address of pointer variable: 0xa7c8dff6e8, Value: 200
 // obj2 (unaffected by obj1 change):
-// Pointer address: 0x23a712f7720, Address of pointer variable: 0xa2959ffd40, Value: 100
+// Pointer address: 0x23e17f85b00, Address of pointer variable: 0xa7c8dff6e0, Value: 100
 
 // Shallow Copy Demonstration:
 // Original object (obj3):
-// Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd38, Value: 100
+// Pointer address: 0x23e17f85b60, Address of pointer variable: 0xa7c8dff6d8, Value: 100
 // Shallow copied object (obj4):
-// Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd30, Value: 100
+// Pointer address: 0x23e17f85b60, Address of pointer variable: 0xa7c8dff6d0, Value: 100
 
 // After modifying obj3:
 // obj3:
-// Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd38, Value: 300
+// Pointer address: 0x23e17f85b60, Address of pointer variable: 0xa7c8dff6d8, Value: 300
 // obj4 (affected by obj3 change due to shallow copy):
-// Pointer address: 0x23a712f77b0, Address of pointer variable: 0xa2959ffd30, Value: 300
-
+// Pointer address: 0x23e17f85b60, Address of pointer variable: 0xa7c8dff6d0, Value: 300
+// Address before delete: 0x23e17f85b60
+// Address after delete: 0x23e17f85b60
+// Address after nullptr: 0
+// Address before delete: 0x23e17f85b60
 
 
 
