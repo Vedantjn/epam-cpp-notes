@@ -48,8 +48,18 @@ int main() {
     return 0;
 }
 
+// Original Box:
+// Length: 10
+// Width: 20
 
+// Copied Box:
+// Length: 10
+// Width: 20
 
-
-
-
+// After modifying box2:
+// Box1:
+// Length: 10
+// Width: 40
+// Box2:
+// Length: 30
+// Width: 40
