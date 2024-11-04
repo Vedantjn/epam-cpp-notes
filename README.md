@@ -87,5 +87,6 @@
 
 ### Week 3: 
 - Inheritance
+- access specifiers
 - this
 - static
