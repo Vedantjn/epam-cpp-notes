@@ -90,3 +90,4 @@
 - access specifiers
 - this
 - static
+- method chaining
