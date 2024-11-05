@@ -23,3 +23,10 @@ int main() {
     obj.memFunc();
     return 0;
 }
+
+// Inside constructor
+// 0x9c55fffa7c
+// Inside member function
+// Address of obj is: 0x9c55fffa7c
+// 10
+// 10
