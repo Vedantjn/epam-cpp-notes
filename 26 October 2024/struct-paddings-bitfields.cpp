@@ -28,7 +28,7 @@ struct WithBitfields {
     unsigned int c : 4;    // 4 bits
     int x;                 // 4 bytes
     unsigned int d : 2;    // 2 bits
-    // Total: 8 bytes (bitfields packed within a 4-byte int)
+    // Total: 12 bytes (bitfields packed within a 4-byte int)
 };
 
 // Struct 4 - With bitfields and packed (1-byte alignment)
@@ -39,7 +39,7 @@ struct WithBitfieldsPacked {
     unsigned int c : 4;    // 4 bits
     int x;                 // 4 bytes
     unsigned int d : 2;    // 2 bits
-    // Total: 8 bytes (packing has no effect due to bitfields)
+    // Total: 12 bytes (packing has no effect due to bitfields)
 };
 #pragma pack()
 
@@ -56,3 +56,6 @@ int main() {
 // Size of RegularPacked: 14 bytes
 // Size of WithBitfields: 12 bytes
 // Size of WithBitfieldsPacked: 12 bytes
+
+
+
