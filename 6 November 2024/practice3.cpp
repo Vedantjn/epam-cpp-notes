@@ -28,6 +28,7 @@ class MyString {
                 p = new char[strlen(obj.p) + 1];
                 strcpy(p, obj.p);
             }
+            cout << "Inside assignment operator" << endl;
             return *this;
         }
 
@@ -35,18 +36,17 @@ class MyString {
             delete[] p;
         }
 
-        int lengthOfString() {
+        int lengthOfString() const {
             if (p == nullptr) {
                 return 0;
             }
-            int length = 0;
-            while (p[length] != '\0') {
-                length++;
-            }
-            return length;
+            return strlen(p);
         }
 
-        int numberOfSpecialCharacters() {
+        int numberOfSpecialCharacters() const {
+            if (p == nullptr) {
+                return 0;
+            }
             int count = 0;
             for(int i = 0; i < lengthOfString(); i++) {
                 if(!isalnum(p[i])) {
@@ -56,7 +56,10 @@ class MyString {
             return count;
         }
 
-        const char* reverseString() {
+        char* reverseString() const {
+            if (p == nullptr) {
+                return nullptr;
+            }
             int len = lengthOfString();
             char* reversedStr = new char[len + 1];
             for(int i = 0; i < len; i++) {
@@ -64,6 +67,28 @@ class MyString {
             }
             reversedStr[len] = '\0';
             return reversedStr;
+        }
+
+        void toUpperCase() {
+            if (p == nullptr) {
+                return;
+            }
+            for(int i = 0; i < lengthOfString(); i++) {
+                p[i] = toupper(p[i]);
+            }
+        }
+
+        void toLowerCase() {
+            if (p == nullptr) {
+                return;
+            }
+            for(int i = 0; i < lengthOfString(); i++) {
+                p[i] = tolower(p[i]);
+            }
+        }
+
+        const char* getString() const {
+            return p;
         }
 };
 
@@ -77,8 +102,18 @@ int main() {
 
     cout << "Length of string is : " << str1.lengthOfString() << endl;
     cout << "Number of special characters in string : " << str4.numberOfSpecialCharacters() << endl;
-    cout << "Reversed string : " << str1.reverseString() << endl;
+    
+    char* reversed = str1.reverseString();
+    cout << "Reversed string : " << reversed << endl;
+    delete[] reversed;
 
-    str1 = str2 = str3 = str4; // when this line gets executed, then all the strings should be updated with the value that is stored in str4, we have to take care of deep copy, make sure we are creating memory for each object whenver we are creating using copy constructor or assignment operator, don't make shallow copy
+    str2.toUpperCase();
+    cout << "Uppercase string : " << str2.getString() << endl;
+    
+    str2.toLowerCase();
+    cout << "Lowercase string : " << str2.getString() << endl;
 
+    str1 = str2 = str3 = str4;
+    
+    return 0;
 }
