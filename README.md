@@ -90,4 +90,9 @@
 - access specifiers
 - this
 - static
-- method chaining
+- Method chaining
+- Typecasting
+- copy constructor, assignment operator
+- Compile Time Polymorphism
+- Function overloading
+- Operator overloading
