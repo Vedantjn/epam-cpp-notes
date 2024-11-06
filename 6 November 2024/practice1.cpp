@@ -23,7 +23,8 @@ int main() {
     myClass obj2 = obj1;  // Copy constructor called
 
     myClass obj3;
-    obj3 = obj1;          // Assignment operator called
+    obj3 = obj1;          // Assignment operator called. This is like obj3.operator=(obj1)
+                          
     
     return 0;
 }
