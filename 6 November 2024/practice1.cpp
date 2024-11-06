@@ -24,7 +24,6 @@ int main() {
 
     myClass obj3;
     obj3 = obj1;          // Assignment operator called. This is like obj3.operator=(obj1)
-                          
     
     return 0;
 }
