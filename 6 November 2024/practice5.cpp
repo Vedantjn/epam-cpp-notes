@@ -30,6 +30,12 @@ int main() {
     return 0;
 }
 
+// Default constructor
+// Inside copy constructor
+// Default constructor
+// Inside assignment operator
+
+
 // The & in myClass& operator=(const myClass &obj) is significant because
 //  it returns a reference to the object being assigned.
 
