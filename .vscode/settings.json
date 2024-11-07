@@ -16,6 +16,7 @@
         "span": "c",
         "ostream": "cpp",
         "iostream": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "new": "cpp"
     }
 }
