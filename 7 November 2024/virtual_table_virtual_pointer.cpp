@@ -83,3 +83,16 @@ int main() {
 // - Each object with virtual functions has extra memory for vptr (usually 4 or 8 bytes)
 // - Each class with virtual functions has one vtable in memory
 // - Small overhead for virtual function calls due to extra indirection
+
+
+
+// Virtual Table (vtable):
+//  virtual table (vtable) is essentially an array or table of pointers, 
+//  each pointing to the addresses of the virtual functions of a class.
+
+// - Array of function pointers for virtual functions
+// - One vtable per class (shared by all instances)
+// - Each class instance has a vptr pointing to class vtable
+// - Enables runtime function resolution
+// - Allows derived classes to override base functions
+// - Small performance overhead for virtual calls
