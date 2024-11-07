@@ -8,6 +8,29 @@
  * state, making them useful for accessor functions and other read-only operations.
  */
 
+/*
+ * A const object in C++ is an object that cannot be modified after it is created.
+ * It is declared using the const keyword, which ensures that neither its member
+ * variables nor its non-const member functions can be modified.
+ *
+ * Characteristics of Const Objects:
+ * -------------------------------
+ * 1. Immutability:
+ *    - Once a const object is initialized, its state cannot be changed.
+ *
+ * 2. Cannot Call Non-Const Member Functions:
+ *    - Non-const member functions that attempt to modify the object cannot be
+ *      called on a const object.
+ *
+ * 3. Const Member Functions:
+ *    - Only const member functions can be called on a const object.
+ *    - These functions do not modify the state of the object.
+ *
+ * 4. Used for Read-Only Access:
+ *    - Const objects are typically used when you want to provide read-only
+ *      access to an object.
+ */
+
 #include <iostream>
 using namespace std;
 
