@@ -40,7 +40,7 @@ public:
 
 int main() {
     Shape* shape = new Circle();
-    shape->draw();  // Calls Circle::draw() without runtime polymorphism
+    shape->draw();  // Calls Circle::draw() 
     
     delete shape;
     return 0;
