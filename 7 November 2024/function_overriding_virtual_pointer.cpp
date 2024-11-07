@@ -1,3 +1,5 @@
+// Point base class pointer to derived class object
+
 // Function Overriding with Virtual Pointers in C++
 
 // 1. Introduction
@@ -56,32 +58,40 @@ public:
 };
 
 int main() {
-    // Create a base class pointer
+    // Case 1: Base pointer to Derived object
     Base* basePtr;        
-    
-    // Create a derived class object
     Derived derivedObj;   
-
-    // Point base class pointer to derived class object - demonstrates polymorphism
     basePtr = &derivedObj;
+    basePtr->show();      // Calls Derived::show() - Virtual
+    basePtr->display();   // Calls Base::display() - Non-virtual
 
-    // Virtual function call - will call Derived::show() through vtable lookup
-    // This demonstrates dynamic/late binding
-    basePtr->show();
+    // Case 2: Direct Derived object calls
+    derivedObj.show();    // Calls Derived::show()
+    derivedObj.display(); // Calls Derived::display()
 
-    // Non-virtual function call - will call Base::display() 
-    // This demonstrates static/early binding
-    basePtr->display();
+    // Case 3: Base pointer to Base object
+    Base baseObj;
+    Base* basePtr2 = &baseObj;
+    basePtr2->show();     // Calls Base::show()
+    basePtr2->display();  // Calls Base::display()
 
-    // Direct call to show() through derived object - calls Derived::show()
-    derivedObj.show();
+    // Case 4: Base reference to Derived object
+    Base& baseRef = derivedObj;
+    baseRef.show();       // Calls Derived::show() - Virtual
+    baseRef.display();    // Calls Base::display() - Non-virtual
 
-    // Direct call to display() through derived object - calls Derived::display()
-    derivedObj.display();
-    return 0;
+    // Case 5: Direct Base object calls
+    baseObj.show();       // Calls Base::show()
+    baseObj.display();    // Calls Base::display()    return 0;
 }
 
 // Derived class show() function called
 // Base class display() function called
 // Derived class show() function called
 // Derived class display() function called
+// Base class show() function called
+// Base class display() function called
+// Derived class show() function called
+// Base class display() function called
+// Base class show() function called
+// Base class display() function called
