@@ -18,37 +18,40 @@ private:
             case 1: case 3: case 5: case 7: case 8: case 10: case 12: return 31;
             case 4: case 6: case 9: case 11: return 30;
             case 2: return isLeapYear(y) ? 29 : 28;
-            default: throw invalid_argument("Invalid month");
+            default: cout << "Month must be between 1 and 123" << endl;
+            return 0;
         }
     }
 
     // Helper function to validate date
     void validateDate() {
-        if (month < 1 || month > 12)
-            throw invalid_argument("Month must be between 1 and 12");
-        if (day < 1 || day > daysInMonth(month, year))
-            throw invalid_argument("Invalid day for the given month and year");
-    }
-
-    // Increment date by one day
-    void incrementDay() const {
-        Date temp = *this;
-        temp.day++;
-        if (temp.day > temp.daysInMonth(temp.month, temp.year)) {
-            temp.day = 1;
-            temp.month++;
-            if (temp.month > 12) {
-                temp.month = 1;
-                temp.year++;
-            }
+        if (month < 1 || month > 12) {
+            cout << "Month must be between 1 and 12" << endl;
+            exit(1);
         }
-        *const_cast<Date*>(this) = temp;
+        if (day < 1 || day > daysInMonth(month, year)) {
+            cout << "Invalid day for the given month and year" << endl;
+            exit(1);
+        }
     }
 
 public:
     // Constructor
     Date(int y, int m, int d) : year(y), month(m), day(d) {
         validateDate();
+    }
+
+    // Increment date by one day
+    void incrementDay() {
+        day++;
+        if (day > daysInMonth(month, year)) {
+            day = 1;
+            month++;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
     }
 
     // Operator += to add days to date
@@ -59,13 +62,13 @@ public:
         return *this;
     }
 
-    // Prefix increment (e.g., ++dt)
+    // Prefix increment (++dt)
     Date& operator++() {
         incrementDay();
         return *this;
     }
 
-    // Postfix increment (e.g., dt++)
+    // Postfix increment (dt++)
     Date operator++(int) {
         Date temp = *this;
         incrementDay();
@@ -81,7 +84,8 @@ public:
             ++days;
         }
         while (*this < temp) {
-            incrementDay();
+            Date tempThis = *this;
+            tempThis.incrementDay();
             ++days;
         }
         return days;
@@ -101,56 +105,68 @@ public:
     // Calculate the weekday (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     string Weekday() const {
         static const string weekdays[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        
         int d = day, m = month, y = year;
+        
+        // For Zeller's formula, January and February are considered as months 13 and 14
+        // of the previous year. This is because the formula works better this way.
+        // January 2024 becomes month 13 of 2023
+        // February 2024 becomes month 14 of 2023
         if (m < 3) {
-            m += 12;
-            y -= 1;
+            m += 12;  // Convert January (1) to 13, February (2) to 14
+            y -= 1;   // Move back one year since we're treating it as part of previous year
         }
+        
+        // Zeller's Congruence formula to calculate day of week
+        // Returns 0 for Sunday, 1 for Monday, etc.
         int weekday = (d + 2 * m + (3 * (m + 1) / 5) + y + y / 4 - y / 100 + y / 400) % 7;
+        
+        // Return the weekday name using the calculated index
         return weekdays[weekday];
     }
-
     // Display function
     void display() const {
         cout << year << "-" << (month < 10 ? "0" : "") << month << "-" << (day < 10 ? "0" : "") << day << endl;
     }
 };
 
-// Main function to test the Date class
 int main() {
-    try {
-        Date dt(2024, 11, 6);
-        dt.display();
+    Date dt(2024, 11, 6);
+    dt.display();
 
-        // Test += operator
-        dt += 20;
-        dt.display();
+    // += operator
+    dt += 20;
+    dt.display();
 
-        // Test prefix increment
-        ++dt;
-        dt.display();
+    // prefix increment
+    ++dt;
+    dt.display();
 
-        // Test postfix increment
-        dt++;
-        dt.display();
+    // postfix increment
+    dt++;
+    dt.display();
 
-        // Test difference in days
-        Date dt1(2024, 11, 6);
-        Date dt2(2024, 12, 1);
-        int days = dt2 - dt1;
-        cout << "Days between dt1 and dt2: " << days << endl;
+    // difference in days
+    Date dt1(2024, 11, 6);
+    Date dt2(2024, 12, 1);
+    int days = dt2 - dt1;
+    cout << "Days between dt1 and dt2: " << days << endl;
 
-        // Test comparison
-        if (dt2 > dt1) {
-            cout << "dt2 is after dt1" << endl;
-        }
-
-        // Test weekday calculation
-        cout << "The day of the week for dt2 is: " << dt2.Weekday() << endl;
+    // comparison
+    if (dt2 > dt1) {
+        cout << "dt2 is after dt1" << endl;
     }
-    catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
-    }
+
+    // weekday calculation
+    cout << "The day of the week for dt2 is: " << dt2.Weekday() << endl;
 
     return 0;
 }
+
+// 2024-11-06
+// 2024-11-26
+// 2024-11-27
+// 2024-11-28
+// Days between dt1 and dt2: 25
+// dt2 is after dt1
+// The day of the week for dt2 is: Saturday

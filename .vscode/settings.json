@@ -15,6 +15,7 @@
         "format": "c",
         "span": "c",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "stdexcept": "cpp"
     }
 }
