@@ -1,4 +1,55 @@
-n C++:
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    // Virtual function
+    virtual void show() {
+        cout << "Base show" << endl;
+    }
+    
+    // Non-virtual function
+    void display() {
+        cout << "Base display" << endl;
+    }
+    
+    // Virtual destructor
+    virtual ~Base() {}
+};
+
+// Derived class inheriting from Base
+class Derived : public Base {
+public:
+    // Override virtual function
+    void show() override {
+        cout << "Derived show" << endl;
+    }
+    
+    // Hide base class display
+    void display() {
+        cout << "Derived display" << endl;
+    }
+};
+
+int main() {
+    // Create base pointer to derived object
+    Base *b = new Derived;
+    
+    b->show();    // Calls Derived's show() due to virtual function
+    b->display(); // Calls Base's display() as it's non-virtual
+
+    // Clean up
+    delete b;
+    return 0;
+}
+
+// Output:
+// Derived show
+// Base display
+
+
+
+// 1. Virtual Functions in C++:
 //     - Functions in base class that can be overridden in derived classes
 //     - Used for runtime polymorphism
 //     - Defined using 'virtual' keyword
