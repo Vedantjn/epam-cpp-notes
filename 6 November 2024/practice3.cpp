@@ -17,7 +17,7 @@ class MyString {
         }
 
         MyString(const MyString& obj) {
-            p = new char[strlen(obj.p) + 1];
+            this->p = new char[strlen(obj.p) + 1];
             strcpy(p, obj.p);
             cout << "Inside copy constructor" << endl;
         }
@@ -91,6 +91,7 @@ class MyString {
             return p;
         }
 };
+
 
 int main() {
     MyString str1;
