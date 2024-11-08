@@ -22,8 +22,8 @@ int main() {
     modifyByValue(num2);      // Pass by value
     
     cout << "\nAfter modifications:" << endl;
-    cout << "num1 (passed by reference) = " << num1 << endl;  // Will show 20
-    cout << "num2 (passed by value) = " << num2 << endl;      // Will still show 10
+    cout << "num1 (passed by reference) = " << num1 << endl;  
+    cout << "num2 (passed by value) = " << num2 << endl;     
     
     return 0;
 }
