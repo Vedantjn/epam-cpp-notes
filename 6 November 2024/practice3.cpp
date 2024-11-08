@@ -23,7 +23,7 @@ class MyString {
         }
 
         MyString& operator=(const MyString& obj) {
-            if(this != &obj) {
+            if(this != &obj) { // Self-assignment Check: First checks if this (current object) and obj (object being assigned) are the same. If yes, it skips the assignment to avoid deleting p.
                 delete[] p;
                 p = new char[strlen(obj.p) + 1];
                 strcpy(p, obj.p);
