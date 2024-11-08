@@ -1,4 +1,4 @@
-// Exception handling: Try catch
+// Bad Alloc Error
 #include <iostream>
 using namespace std;
 
