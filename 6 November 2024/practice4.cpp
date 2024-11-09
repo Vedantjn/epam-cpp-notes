@@ -30,3 +30,8 @@ int main() {
     
     return 0;
 }
+
+// Default constructor
+// Inside copy constructor
+// Default constructor
+// Inside assignment operator
