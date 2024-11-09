@@ -1,4 +1,4 @@
-// "implementing string functions
+// implementing string functions
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -74,7 +74,9 @@ class MyString {
                 return;
             }
             for(int i = 0; i < lengthOfString(); i++) {
-                p[i] = toupper(p[i]);
+                if(p[i] >= 'a' && p[i] <= 'z') {
+                    p[i] = p[i] - 'a' + 'A';
+                }
             }
         }
 
@@ -83,7 +85,9 @@ class MyString {
                 return;
             }
             for(int i = 0; i < lengthOfString(); i++) {
-                p[i] = tolower(p[i]);
+                if(p[i] >= 'A' && p[i] <= 'Z') {
+                    p[i] = p[i] - 'A' + 'a';
+                }
             }
         }
 
