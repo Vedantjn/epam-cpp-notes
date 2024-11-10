@@ -8,7 +8,7 @@
 //    a) Access Control:
 //       - Only accessible within the class itself
 //       - Not directly accessible from outside the class
-   
+
 //    b) Instance Binding:
 //       - Associated with individual class instances
 //       - Each object has its own copy of these members
@@ -17,25 +17,27 @@
 #include <iostream>
 using namespace std;
 
-class Person {
+class Person
+{
 private:
-    string name;    // Private non-static member variable
-    int age;        // Private non-static member variable
+    string name; // Private non-static member variable
+    int age;     // Private non-static member variable
 
 public:
     // Constructor to initialize private member variables
-    Person(const string& name, int age) : name(name), age(age) {}
+    Person(const string &name, int age) : name(name), age(age) {}
 
     string getName() const { return name; }
 
-    void setName(const string& newName) { name = newName; }
+    void setName(const string &newName) { name = newName; }
 
     int getAge() const { return age; }
 
     void setAge(int newAge) { age = newAge; }
 };
 
-int main() {
+int main()
+{
     Person p("Alice", 25);
 
     // Accessing private member variables through public getters and setters
