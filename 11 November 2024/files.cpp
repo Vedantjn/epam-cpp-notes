@@ -56,7 +56,7 @@ int main() {
     ofstream binaryFile("binary_file.bin", ios::binary);
     if (binaryFile.is_open()) {
         int data[] = {1, 2, 3, 4, 5};
-        binaryFile.write(reinterpret_cast<char*>(data), sizeof(data));
+        binaryFile.write(reinterpret_cast<char*>(data), sizeof(data)); // reinterpret_cast<char*>(data): Converts the int* (pointer to the integer array) to char*. This reinterpret cast is necessary because write() expects a char* pointer, which points to raw bytes.
         binaryFile.close();
         cout << "\nBinary data written to binary_file.bin." << endl;
     } else {
