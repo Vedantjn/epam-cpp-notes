@@ -34,6 +34,8 @@ int main() {
         stringstream ss(line);      // Create a string stream for parsing
         string temp;                // Temporary string to hold values
         
+        // cout << ss << endl;
+
         // Parse name (reads until comma)
         // Read characters from stringstream 'ss' until a comma is encountered and store in 'temp'
         getline(ss, temp, ',');
@@ -55,9 +57,12 @@ int main() {
         emp.qualification[sizeof(emp.qualification) - 1] = '\0';
         
         // Write the employee record to binary file
-        outFile.write(reinterpret_cast<char*>(&emp), sizeof(Employee));
+        outFile.write(reinterpret_cast<char*>(&emp), sizeof(Employee));        
+        // reinterpret_cast<char*>(&emp) converts the memory address of the Employee struct 
+        // to a char pointer, which is required by the write() function. It allows writing 
+        // the binary data of the struct directly to the file.  
     }
-    
+       
     // Close both files
     inFile.close();
     outFile.close();
