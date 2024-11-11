@@ -1,0 +1,5 @@
+Vedant Jain,50000,Software Engineer,Master's in Computer Science
+Vanshika Kanwar,60000,Data Scientist,Bachelor's in Mathematics
+Anita Sharma,55000,Product Manager,Master's in Business Administration
+Amit Singh,45000,System Administrator,Bachelor's in Information Technology
+Deepak Verma,70000,Software Architect,Master's in Software Engineering
