@@ -23,7 +23,7 @@ int main() {
 
     // Reading from a binary file
     Employee readEmp;
-    file.open("employee.dat", ios::in | ios::binary);
+    file.open("employeee.dat", ios::in | ios::binary);
     if (file.is_open()) {
         file.read(reinterpret_cast<char*>(&readEmp), sizeof(readEmp));
         file.close();
