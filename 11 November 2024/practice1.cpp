@@ -53,3 +53,14 @@ int main() {
 
     return 0;
 }
+
+// Case 2 - ptr2 points to b with new value: 30
+// Case 4 - ptr3 points to a with value: 10
+// Case 5 - ptr4 now points to b with value: 30
+
+// Summary:
+// a (const int): 10
+// b (modifiable int through ptr2): 30
+// ptr2 (int* const) points to b: 30
+// ptr3 (const int* const) points to a: 10
+// ptr4 (const int*) can point to a or b, current value: 30
