@@ -1,3 +1,13 @@
+// When a base class pointer is used to delete a derived class object, 
+// a non-virtual destructor in the base class will cause only the base class 
+// destructor to be called, leading to incomplete destruction of the derived 
+// class object. This can cause resource leaks or undefined behavior because 
+// the derived class members or dynamically allocated resources won't be 
+// properly cleaned up.
+
+// By making the destructor virtual, you ensure that the derived class 
+// destructor is called correctly, allowing proper cleanup.#include <iostream>
+
 #include <iostream>
 #include <stdio.h>
 #include <string>
