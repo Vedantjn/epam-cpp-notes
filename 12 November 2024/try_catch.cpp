@@ -103,3 +103,15 @@
 
       return 0;
   }
+
+//   ----- Basic Exception Handling -----
+// Exception caught: Division by zero is not allowed!
+
+// ----- Multiple Exception Types -----
+// Enter 1 for int exception, 2 for double, 3 for string: kn
+
+// ----- Standard Exceptions -----
+// Memory allocation failed: std::bad_alloc
+// Out of range error: vector::_M_range_check: __n (which is 10) >= this->size() (which is 5)
+// Standard exception: A runtime error occurred
+// Invalid argument: Invalid argument provided
