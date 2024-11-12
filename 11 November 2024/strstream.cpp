@@ -38,7 +38,6 @@ public:
     }
 };
 
-// Usage Example
 int main() {
     StrStream str;
     
