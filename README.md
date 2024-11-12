@@ -105,3 +105,9 @@
 - Pure virtual function
 - Abstract class
 - Bad alloc error
+
+### Week 3: C++ Programming Concepts
+
+- pointer and const combinations
+- virtual destructor
+- iostream, fstream, strstream
