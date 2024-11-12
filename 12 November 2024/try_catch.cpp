@@ -62,6 +62,30 @@
       }
 
       cout << "\n----- Standard Exceptions -----\n";
+      // Theory about standard exceptions:
+      // 1. std::bad_alloc:
+      //    - Thrown when dynamic memory allocation fails (new operator)
+      //    - Usually occurs when system runs out of memory
+      //    - Part of <new> header
+      //    - Common in large array allocations or memory-intensive operations
+      
+      // 2. std::out_of_range:
+      //    - Thrown when accessing elements beyond container bounds
+      //    - Common with vector, string, and other STL containers
+      //    - Part of <stdexcept>
+      //    - Helps prevent buffer overflows and memory corruption
+      
+      // 3. std::runtime_error:
+      //    - Base class for runtime-related errors
+      //    - Used for errors that can only be detected during program execution
+      //    - Part of <stdexcept>
+      
+      // 4. std::invalid_argument:
+      //    - Thrown when an invalid argument is passed to a function
+      //    - Used for parameter validation
+      //    - Part of <stdexcept>
+      //    - Common in input validation scenarios
+
       try {
           // Bad allocation example
           int* arr = new int[1000000000000];
