@@ -19,6 +19,10 @@
         "stdexcept": "cpp",
         "new": "cpp",
         "sstream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "any": "cpp",
+        "expected": "cpp",
+        "optional": "cpp",
+        "variant": "cpp"
     }
 }
