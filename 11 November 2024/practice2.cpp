@@ -31,7 +31,9 @@ int main() {
     while (getline(inFile, line)) {
         // cout << line << endl;
         Employee emp;               // Create an Employee object
-        stringstream ss(line);      // Create a string stream for parsing
+        stringstream ss(line);      // Create a string stream for parsing // // stringstream is used to break down the comma-separated line into individual fields
+            // For example, if line = "Vedant,50000,Manager,Btech"
+            // stringstream will help extract: name="Vedant", salary=50000, designation="Manager", qualification="Btech"
         string temp;                // Temporary string to hold values
         
         // cout << ss << endl;
