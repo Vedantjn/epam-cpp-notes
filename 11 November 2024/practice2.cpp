@@ -42,8 +42,8 @@ int main() {
         // Read characters from stringstream 'ss' until a comma is encountered and store in 'temp'
         getline(ss, temp, ',');
         // Copy the string from 'temp' into emp.name array, leaving space for null terminator
-        strncpy(emp.name, temp.c_str(), sizeof(emp.name) - 1);  // c_str() converts C++ string to C-style char array
-        emp.name[sizeof(emp.name) - 1] = '\0';  // Ensure null termination        
+        strcpy(emp.name, temp.c_str());  // c_str() converts C++ string to C-style char array
+        // emp.name[sizeof(emp.name) - 1] = '\0';  // Ensure null termination        
         // Parse salary (reads until comma)
         getline(ss, temp, ',');
         emp.salary = stof(temp);    // Convert string to float
