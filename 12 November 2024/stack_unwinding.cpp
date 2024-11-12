@@ -1,4 +1,7 @@
-// in stack unwinding, before reaching the catch block, all the fully constructed objects will be destructed
+// in stack unwinding, all fully constructed objects are destructed in reverse order of their construction before control reaches the appropriate catch block
+// Stack Unwinding in C++
+// When an exception is thrown, stack unwinding ensures proper cleanup of objects
+// by destructing them in reverse order of their construction
 #include <iostream>
 using namespace std;
 
