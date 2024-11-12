@@ -100,6 +100,7 @@
       catch (...) {
           cout << "Default exception handler" << endl;
       }
+    //   Ellipsis (...) in a catch block catches any exception not explicitly handled by other catch blocks.
 
       return 0;
   }
