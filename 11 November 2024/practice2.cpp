@@ -31,7 +31,8 @@ int main() {
     while (getline(inFile, line)) {
         // cout << line << endl;
         Employee emp;               // Create an Employee object
-        stringstream ss(line);      // Create a string stream for parsing // // stringstream is used to break down the comma-separated line into individual fields
+        stringstream ss(line);      // Create a string stream for parsing
+        // stringstream is used to break down the comma-separated line into individual fields
             // For example, if line = "Vedant,50000,Manager,Btech"
             // stringstream will help extract: name="Vedant", salary=50000, designation="Manager", qualification="Btech"
         string temp;                // Temporary string to hold values
@@ -43,20 +44,18 @@ int main() {
         getline(ss, temp, ',');
         // Copy the string from 'temp' into emp.name array, leaving space for null terminator
         strcpy(emp.name, temp.c_str());  // c_str() converts C++ string to C-style char array
-        // emp.name[sizeof(emp.name) - 1] = '\0';  // Ensure null termination        
+        
         // Parse salary (reads until comma)
         getline(ss, temp, ',');
         emp.salary = stof(temp);    // Convert string to float
         
         // Parse designation (reads until comma)
         getline(ss, temp, ',');
-        strncpy(emp.designation, temp.c_str(), sizeof(emp.designation) - 1);
-        emp.designation[sizeof(emp.designation) - 1] = '\0';
+        strcpy(emp.designation, temp.c_str());
         
         // Parse qualification (reads rest of line)
         getline(ss, temp);
-        strncpy(emp.qualification, temp.c_str(), sizeof(emp.qualification) - 1);
-        emp.qualification[sizeof(emp.qualification) - 1] = '\0';
+        strcpy(emp.qualification, temp.c_str());
         
         // Write the employee record to binary file
         outFile.write(reinterpret_cast<char*>(&emp), sizeof(Employee));        
