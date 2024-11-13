@@ -4,6 +4,14 @@
 //    - Extension of Rule of Three
 //    - Required when class manages resources
 
+
+// Destructor: To release resources.
+// Copy Constructor: To create a new object by copying an existing one.
+// Copy Assignment Operator: To copy one object’s data into another existing object.
+// Move Constructor: To transfer resources from a temporary object.
+// Move Assignment Operator: To move resources from a temporary object into an existing one.
+
+
 // 2. Five Special Member Functions:
 //    a) Destructor
 //       - Cleans up owned resources
