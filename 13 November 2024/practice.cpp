@@ -19,15 +19,15 @@ public:
 
     void myFunct(int x, int y) {
         try {
-            // Example 1: Test divide by zero exception
+            // 1: Test divide by zero exception
             if (y == 0) {
                 throw divideByZeroException();
             }
 
-            // Example 2: Divide numbers
+            // 2: Divide numbers
             int k = x / y;
 
-            // Example 3: Out of range exception on vector access
+            // 3: Out of range exception on vector access
             vector<int> intVector;
             cout << intVector.at(5); // This will throw out_of_range exception
 
@@ -50,7 +50,7 @@ public:
 
 int main() {
     myClass obj;
-    obj.myFunct(5, 0);  // Test divide by zero exception
+    obj.myFunct(5, 0);  // divide by zero exception
     // obj.myFunct(5, 2);  // Uncomment to test divide with valid numbers
     // obj.myFunct(5, 10); // Uncomment to test out of range exception
 
