@@ -87,3 +87,6 @@ int main() {
 //      - Uses format: noexcept(expr)
 //      - expr evaluates to true/false
 //      - Allows conditional noexcept based on function/argument properties
+
+
+// If a function marked with noexcept actually throws an exception, it results in undefined behavior. In practice, this will typically cause the program to terminate by calling std::terminate, because noexcept promises that the function will not throw, and breaking this promise is a serious error.
