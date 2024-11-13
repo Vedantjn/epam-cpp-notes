@@ -1,14 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <stdexcept>
+#include<iostream>
+#include<vector>
+using namespace std;
 
 // Basic example of noexcept functions
 void mayThrow() {
-    throw std::runtime_error("This function throws an exception");
+    throw runtime_error("This function throws an exception");
 }
 
 void noThrow() noexcept {
-    std::cout << "This function does not throw an exception.\n";
+    cout << "This function does not throw an exception.\n";
 }
 
 // Class demonstrating noexcept move operations
@@ -34,16 +34,16 @@ int main() {
     try {
         noThrow();     // Safe; noexcept guarantees no exceptions
         mayThrow();    // Will throw
-    } catch (const std::exception& e) {
-        std::cout << "Caught exception: " << e.what() << '\n';
+    } catch (const exception& e) {
+        cout << "Caught exception: " << e.what() << '\n';
     }
 
     // Check if functions are noexcept
-    std::cout << "noThrow is noexcept: " << noexcept(noThrow()) << '\n';
-    std::cout << "mayThrow is noexcept: " << noexcept(mayThrow()) << '\n';
+    cout << "noThrow is noexcept: " << noexcept(noThrow()) << '\n';
+    cout << "mayThrow is noexcept: " << noexcept(mayThrow()) << '\n';
 
     // Testing noexcept move operations
-    std::vector<NoExceptExample> vec;
+    vector<NoExceptExample> vec;
     vec.reserve(2);
     vec.emplace_back(1);
     vec.emplace_back(2);
@@ -51,6 +51,12 @@ int main() {
 
     return 0;
 }
+
+// This function does not throw an exception.
+// Caught exception: This function throws an exception
+// noThrow is noexcept: 1
+// mayThrow is noexcept: 0
+
 
 // In this example:
 
