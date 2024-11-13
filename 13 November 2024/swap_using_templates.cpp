@@ -1,24 +1,24 @@
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-template <typename A, typename B>
-void swapItems(A a, B b) {
-    B temp = b;
-    b = a;
-    a = temp;
-}
+// template <typename A, typename B>
+// void swapItems(A a, B b) {
+//     B temp = b;
+//     b = static_cast<B>a;
+//     a = static_cast<A>temp;
+// }
 
-int main(){
-    int age = 22;
-    string name = "Vedant's age is : ";
+// int main(){
+//     int age = 22;
+//     string name = "Vedant's age is : ";
 
-    cout << age << " " << name << endl;
-    swapItems(age, name);
-    cout << age << " " << name << endl;
+//     cout << age << " " << name << endl;
+//     swapItems(age, name);
+//     cout << age << " " << name << endl;
 
 
-    return 0;
-}
+//     return 0;
+// }
 
 // ---------------------------------------------------
 
@@ -27,7 +27,7 @@ int main(){
 using namespace std;
 
 template <typename T>
-void swapItems(T& a, T& b) { 
+void swapItems(T a, T b) { 
     T temp = b;
     b = a;
     a = temp;
