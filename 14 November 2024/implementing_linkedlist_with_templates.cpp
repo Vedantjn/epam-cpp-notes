@@ -150,13 +150,13 @@ public:
     static Node<T>* reverse(Node<T>* head) {
         Node<T>* prev = nullptr;
         Node<T>* curr = head;
-        Node<T>* next = nullptr;
+        Node<T>* temp = nullptr;
 
         while (curr != nullptr) {
-            next = curr->next;
+            temp = curr->next;
             curr->next = prev;
             prev = curr;
-            curr = next;
+            curr = temp;
         }
         return prev;
     }
