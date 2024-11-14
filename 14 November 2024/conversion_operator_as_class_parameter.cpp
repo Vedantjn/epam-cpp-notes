@@ -1,69 +1,38 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>
-
+#include<iostream>
 using namespace std;
-class MyString;
 
 class MyInt {
 private:
     int value;
 
 public:
-    // Constructor
-    MyInt(int v) : value(v) {}
+    MyInt(int v = 0) : value(v) {}
 
-    // Conversion operator: Convert MyInt to MyString
-    operator MyString() const;
+    // Assignment operator for int
+    MyInt& operator=(int x) {
+        value = x;
+        return *this;
+    }
+
+    // Assignment operator for string
+    MyInt& operator=(const string& s) {
+        cout << "Inside string to int assignment\n";
+        value = stoi(s);
+        return *this;
+    }
 
     // Getter
     int getValue() const { return value; }
 };
 
-class MyString {
-private:
-    string str;
-
-public:
-    // Constructor
-    MyString(const string& s) : str(s) {}
-
-    // Conversion operator: Convert MyString to MyInt
-    operator MyInt() const {
-        return MyInt(stoi(str)); // Convert string to int
-    }
-
-    // Getter
-    string getStr() const { return str; }
-};
-
-// Definition of MyInt's conversion operator to MyString
-MyInt::operator MyString() const {
-    return MyString(to_string(value)); // Convert int to string
-}
-
-// Test functions
-void printConversion(const MyString& myStr) {
-    cout << "MyString: " << myStr.getStr() << endl;
-}
-
-void printConversion(const MyInt& myInt) {
-    cout << "MyInt: " << myInt.getValue() << endl;
-}
-
 int main() {
-    // Instantiate MyInt and convert it to MyString
-    MyInt myInt(42);
-    MyString myStr = myInt; // Uses MyInt's conversion to MyString
-    printConversion(myStr);
+    string str = "42";
+    int var = 20;
+    MyInt a;
 
-    // Instantiate MyString and convert it to MyInt
-    MyString myStr2("123");
-    MyInt myInt2 = myStr2; // Uses MyString's conversion to MyInt
-    printConversion(myInt2);
+    str = to_string(20);
+    a = str;
+    cout << "Value: " << a.getValue() << endl;
 
     return 0;
 }
-
-// MyString: 42
-// MyInt: 123
