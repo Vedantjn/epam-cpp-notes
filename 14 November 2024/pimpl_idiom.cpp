@@ -47,7 +47,7 @@ class Widget::Impl {             // In source file
 - More complex code structure
 */
 
-// Example implementation
+// Implementation
 #include <memory>
 #include <string>
 
