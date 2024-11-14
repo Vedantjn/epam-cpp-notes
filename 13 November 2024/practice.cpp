@@ -6,11 +6,11 @@ using namespace std;
 
 class divideByZeroException : public exception {
 public:
-    // divideByZeroException() : exception("divideByZeroException exception thrown") {}
+    divideByZeroException() : exception("divideByZeroException exception thrown") {}
 
-    const char* what() const noexcept override {
-        return "divideByZeroException exception thrown";
-    }
+    // const char* what() const noexcept override {
+    //     return "divideByZeroException exception thrown";
+    // }
 };
 
 class myClass {

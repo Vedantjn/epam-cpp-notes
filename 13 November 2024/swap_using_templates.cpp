@@ -1,24 +1,46 @@
-// #include<iostream>
-// using namespace std;
+#include<iostream>
+using namespace std;
 
-// template <typename A, typename B>
-// void swapItems(A a, B b) {
-//     B temp = b;
-//     b = static_cast<B>a;
-//     a = static_cast<A>temp;
-// }
+template <typename A, typename B>
+void swapItems(A& a, B& b) {  
+    B temp = b;
+    b = static_cast<B>(a);  
+    a = static_cast<A>(temp);
+}
 
-// int main(){
-//     int age = 22;
-//     string name = "Vedant's age is : ";
+int main() {
+    int age = 22;
+    string name = "Vedant's age is : ";
 
-//     cout << age << " " << name << endl;
-//     swapItems(age, name);
-//     cout << age << " " << name << endl;
+    cout << "Before swap: " << age << " " << name << endl;
+    swapItems(age, name);
+    cout << "After swap: " << age << " " << name << endl;
 
+    return 0;
+}
 
-//     return 0;
-// }
+// ---------------------------------------------------
+
+#include<iostream>
+using namespace std;
+
+template <typename A, typename B>
+void swapItems(A& a, B& b) {
+    auto temp = b;      
+    b = a;              
+    a = temp;           
+}
+
+int main() {
+    int age = 22;
+    string name = "Vedant's age is : ";
+
+    cout << "Before swap: " << age << " " << name << endl;
+    swapItems(age, name);
+    cout << "After swap: " << age << " " << name << endl;
+
+    return 0;
+}
 
 // ---------------------------------------------------
 
@@ -53,9 +75,9 @@ int main() {
     return 0;
 }
 
-// Before swap:
-// age = 22, num = 45
-// name = Vedant's age is : , text = Hello World
-// After swap:
-// age = 45, num = 22
-// name = Hello World, text = Vedant's age is :
+// // Before swap:
+// // age = 22, num = 45
+// // name = Vedant's age is : , text = Hello World
+// // After swap:
+// // age = 45, num = 22
+// // name = Hello World, text = Vedant's age is :
