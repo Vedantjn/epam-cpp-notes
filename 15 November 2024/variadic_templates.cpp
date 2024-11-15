@@ -47,3 +47,7 @@ int main() {
     
     return 0;
 }
+
+// Hello 42 3.14 World 
+// Sum of integers: 15
+// Sum of doubles: 7.5
