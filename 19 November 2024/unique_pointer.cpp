@@ -27,3 +27,10 @@ int main(){
 
     return 0;
 }
+
+// Advantages:
+// Efficiency: No reference counting overhead.
+// Safety: Prevents memory leaks as the destructor automatically deletes the resource.
+
+// Disadvantages:
+// Cannot be shared or copied, making it unsuitable for shared ownership scenarios.
