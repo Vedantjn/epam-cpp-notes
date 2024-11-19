@@ -6,10 +6,28 @@
 // • Reference Counting: Maintains a reference count to track the number of owners.
 // • Automatic Deletion: Deletes the resource when the last owner goes out of scope.
 
+// make_shared:
+// • std::make_shared is the recommended way to create a shared_ptr
+// • It allocates memory for both the object and the control block in a single allocation
+// • More efficient than using shared_ptr constructor which requires two allocations
+// • Syntax: auto ptr = std::make_shared<Type>(constructor arguments);
+
 #include <iostream>
 #include <memory> // For std::shared_ptr
 
 using namespace std;
+
+class Person {
+public:
+    Person(string n, int a) : name(n), age(a) {
+        cout << "Person created\n";
+    }
+    ~Person() {
+        cout << "Person destroyed\n";
+    }
+    string name;
+    int age;
+};
 
 int main() {
     // Create a shared_ptr
@@ -24,6 +42,15 @@ int main() {
 
     // Check reference count
     cout << "Reference count: " << sptr1.use_count() << "\n";
+
+    // make_shared with a class
+    auto person = make_shared<Person>("Vedant", 22);
+    cout << "Person name: " << person->name << ", age: " << person->age << "\n";
+    cout << "Person reference count: " << person.use_count() << "\n";
+
+    // Share the Person object
+    auto person2 = person;
+    cout << "Person reference count after sharing: " << person.use_count() << "\n";
 
     return 0; // Resource is destroyed after the last shared_ptr is destroyed
 }
