@@ -19,10 +19,10 @@ int main() {
     MyClass nonConstObj;       // Non-const object
 
     nonConstObj.setValue(10);  // Valid, modifies value
-    cout << "Non-const object's value: " << nonConstObj.getValue() << std::endl;
+    cout << "Non-const object's value: " << nonConstObj.getValue() << endl;
 
     // constObj.setValue(10);  // Error, const object cannot call non-const function
-    cout << "Const object's value: " << constObj.getValue() << std::endl; // Valid, const object can call const function
+    cout << "Const object's value: " << constObj.getValue() << endl; // Valid, const object can call const function
 
     return 0;
 }
