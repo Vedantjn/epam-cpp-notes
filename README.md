@@ -35,6 +35,7 @@
 
 - Input/Output Operations
   - Basic I/O Operations
+
 ### Week 2: C++ Programming Concepts
 
 - Object-Oriented Programming Basics
@@ -85,29 +86,59 @@
   - Standard I/O Streams (stdin, stdout, stderr)
   - C++ I/O Streams (cin, cout, cerr)
 
-### Week 3: 
-- Inheritance
-- access specifiers
-- this
-- static
-- Method chaining
-- Typecasting
-- copy constructor, assignment operator
-- Compile Time Polymorphism
-- Function overloading
-- Operator overloading
-- const member function, const object
-- Inline member function
-- Macros
-- Virtual function
-- Virtual pointer, Virtual pointer
-- Dispatcher invoking
-- Pure virtual function
-- Abstract class
-- Bad alloc error
+### Week 3: C++ Programming Concepts
+
+- Object-Oriented Programming
+  - Inheritance and Relationships
+    - Inheritance Basics
+    - Access Specifiers
+    - 'is-a' vs 'has-a' Relationships
+    - Virtual Functions and Polymorphism
+      - Virtual Functions
+      - Pure Virtual Functions
+      - Virtual Destructors
+      - Virtual Pointer
+      - Abstract Classes
+  - Class Features
+    - this Pointer
+    - Static Members
+    - Method Chaining
+    - Const Members and Objects
+    - Inline Functions
+    - Copy and Move Semantics
+      - Copy Constructor
+      - Assignment Operator
+      - L-value and R-value References
+
+- Advanced Programming Concepts
+  - Templates
+    - Basic Templates
+    - Variadic Templates
+  - Memory Management
+    - RAII Pattern
+    - PIMPL Idiom
+    - Rule of 0/3/5
+    - Bad Alloc Error
+
+- Error Handling
+  - Exception Handling
+    - Try-Catch Blocks
+    - Throwing and Rethrowing
+    - Stack Unwinding
+
+- Type Management
+  - Typecasting
+  - Auto Keyword
+
+- I/O Operations
+  - IOStream
+  - FStream
+  - StrStream
+
+- Preprocessor
+  - Macros
 
 ### Week 3: C++ Programming Concepts
 
-- pointer and const combinations
-- virtual destructor
-- iostream, fstream, strstream
+- Copy and Move semantics
+- L value, R value reference
