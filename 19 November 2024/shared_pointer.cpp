@@ -36,6 +36,7 @@ int main() {
 
     // Share ownership with another shared_ptr
     shared_ptr<int> sptr2 = sptr1;
+    cout << "Value from sptr1: " << *sptr1 << "\n";
     cout << "Value from sptr2: " << *sptr2 << "\n";
 
     shared_ptr<int> sptr3 = sptr1;
