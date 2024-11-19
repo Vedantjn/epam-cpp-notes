@@ -27,3 +27,11 @@ int main() {
 
     return 0; // Resource is destroyed after the last shared_ptr is destroyed
 }
+
+// Advantages:
+// Allows multiple ownership, making it suitable for shared resources.
+// Automatically deallocates the resource when the last owner is destroyed.
+
+// Disadvantages:
+// Overhead: Reference counting adds a slight performance overhead.
+// Cyclic References: If std::shared_ptr objects form a cyclic reference, the memory may not be freed. Use std::weak_ptr to solve this issue.
