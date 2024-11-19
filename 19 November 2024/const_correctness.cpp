@@ -26,3 +26,6 @@ int main() {
 
     return 0;
 }
+
+// Non-const object's value: 10
+// Const object's value: 0
