@@ -1,25 +1,74 @@
-// void c_del(int* ptr) {
-//     delete[] ptr;
-// }
+// 1. Custom deleters in C++ provide control over resource cleanup when smart pointers go out of scope.
 
-// class BB {
-//     BB() {
-//         cout << "BB's Contructor called" << endl;
-//     }
+// 2. Key features:
+//    - Define specific cleanup logic for dynamically allocated resources
+//    - Work with std::unique_ptr and std::shared_ptr
+//    - Handle memory, file handles, sockets, and other resources
 
-//     ~BB() {
-//         cout << "BB's Destructor called" << endl;
-//     }
-// };
+// 3. Use cases:
+//    - Managing non-standard resource types
+//    - Implementing custom cleanup requirements
+//    - Ensuring proper resource deallocation
 
-// int main() {
-//     unique_ptr<int[]> ptr(new int[10], c_del);
-//     *ptr = 3;
+// 4. Benefits:
+//    - Automatic resource management
+//    - Prevention of resource leaks
+//    - Clean and maintainable code
 
-//     unique_ptr<int[]> ptr(new BB[10]);
+// Why Use a Custom Deleter?
+// Custom Resource Management:
 
-// }
+// Clean up resources other than memory, such as file handles, network sockets, or mutexes.
+// Integration with Non-standard APIs:
 
+// Handle APIs that require special cleanup procedures.
+// Logging or Debugging:
+
+// Log resource deallocation for debugging purposes.
+// Avoiding Memory Leaks:
+
+// Ensure proper cleanup in complex scenarios.
+
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+void c_del(int* ptr) {
+    cout << "Custom deleter called for integer array\n";
+    delete[] ptr;
+}
+
+class BB {
+public:
+    BB() {
+        cout << "BB's Constructor called\n";
+    }
+
+    ~BB() {
+        cout << "BB's Destructor called\n";
+    }
+};
+
+void bb_del(BB* ptr) {
+    cout << "Custom deleter called for BB array\n";
+    delete[] ptr;
+}
+
+int main() {
+    unique_ptr<int[], decltype(&c_del)> ptr1(new int[10], c_del);
+    ptr1[0] = 3; 
+    ptr1[9] = 42;
+    cout << "ptr1[0] = " << ptr1[0] << ", ptr1[9] = " << ptr1[9] << "\n";
+
+    unique_ptr<BB[], decltype(&bb_del)> ptr2(new BB[3], bb_del);
+    cout << "BB array is being managed by ptr2\n";
+
+    return 0;
+}
+
+
+// -----------------------------------------------
 
 #include <iostream>
 #include <memory>
