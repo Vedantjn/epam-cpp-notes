@@ -1,3 +1,34 @@
+// Time and Space Complexities:
+/*
+Vector:
+- Access: O(1)
+- Insert/Delete at end: O(1) amortized
+- Insert/Delete at beginning/middle: O(n)
+- Space: O(n) where n is number of elements
+
+Deque:
+- Access: O(1)
+- Insert/Delete at beginning/end: O(1)
+- Insert/Delete at middle: O(n)
+- Space: O(n)
+
+List:
+- Access: O(n)
+- Insert/Delete anywhere: O(1) with iterator
+- Space: O(n)
+
+Array:
+- Access: O(1)
+- Insert/Delete: Not applicable (fixed size)
+- Space: O(n) where n is fixed size
+
+Forward List:
+- Access: O(n)
+- Insert/Delete at beginning: O(1)
+- Insert/Delete elsewhere: O(n)
+- Space: O(n)
+*/
+
 #include <iostream>
 #include <vector>
 #include <deque>
