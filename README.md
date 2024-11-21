@@ -142,3 +142,18 @@
 
 - Copy and Move semantics
 - L value, R value reference
+- Auto keyword
+- Smart pointers
+- Unique pointer
+- Shared pointer
+- Weak pointer
+- Cyclic dependency
+- Typecasting
+- Downcasting
+- Custom deleter
+- STL
+- Initialiser list STL
+- Sequence containers
+- Associative containers
+- Unordered Associative containers
+- Functors
