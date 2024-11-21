@@ -125,3 +125,10 @@ int main() {
 // // 2. When initializing containers with a predefined list of values.
 // // 3. For lightweight and read-only data structures.
 
+
+// The std::initializer_list itself does not directly own memory. Instead, it provides a 
+// lightweight interface to access a temporary array of elements that is created when the 
+// initializer list is used.
+
+// When you use an initializer list (e.g., {1, 2, 3}), the compiler creates a temporary array 
+// to store these values.
