@@ -86,3 +86,165 @@ int main() {
 // Conclusion
 // Functors are an essential tool in C++, providing callable objects that encapsulate state and custom behavior. 
 // While lambdas are often more concise, functors shine in reusable, stateful, and object-oriented designs.
+
+
+// Sorting a vector in descending order using functor
+#include<iostream>
+using namespace std;
+
+class Sort {
+public:
+    bool operator()(int a, int b) {
+        return a > b;
+    }
+};
+
+int main(){
+    vector<int>numbers = {34, 35, 23, 46, 2};
+    sort(numbers.begin(), numbers.end(), Sort());
+    for(int num : numbers) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+// Comparison for sorting strings
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class CompareByLength {
+public:
+    bool operator()(const string& a, const string& b) {
+        return a.size() < b.size();
+    }
+};
+
+int main() {
+    vector<string> words = {"apple", "kiwi", "banana", "cherry"};
+
+    // Sort strings by length using the functor
+    sort(words.begin(), words.end(), CompareByLength());
+
+    for (const string& word : words) {
+        cout << word << " ";
+    }
+    return 0;
+}
+
+// transforming elements
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Square {
+public:
+    int operator()(int x) {
+        return x * x;
+    }
+};
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> squares(numbers.size());
+
+    // Transform the numbers into their squares
+    transform(numbers.begin(), numbers.end(), squares.begin(), Square());
+
+    for (int num : squares) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+// Counting values in range:
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class IsInRange {
+    int low, high;
+public:
+    IsInRange(int l, int h) : low(l), high(h) {}
+    bool operator()(int x) {
+        return x >= low && x <= high;
+    }
+};
+
+int main() {
+    vector<int> numbers = {10, 20, 30, 40, 50, 60};
+
+    // Count numbers in the range [20, 50]
+    int count = count_if(numbers.begin(), numbers.end(), IsInRange(20, 50));
+
+    cout << "Count of numbers in range [20, 50]: " << count << endl;
+    return 0;
+}
+
+// Functor with Stateful behaviour
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Counter {
+    int count;
+public:
+    Counter() : count(0) {}
+    bool operator()(int x) {
+        count++;
+        return x % 2 == 0; // Return true if even
+    }
+    int getCount() const { return count; }
+};
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5, 6};
+
+    Counter counter;
+    remove_if(numbers.begin(), numbers.end(), Counter());
+
+    cout << "Functor was called " << counter.getCount() << " times." << endl;
+    return 0;
+}
+
+
+// Doubt: Why is the counter not incrementing (it is showing garbage value)?
+
+#include<iostream>
+#include<vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+class Sort {
+    int count;
+public:
+    bool operator()(int a, int b) {
+        count++;
+        return a > b;
+    }
+    int getCount() {
+        return count;
+    }
+};
+
+int main(){
+    vector<int>numbers = {34, 35, 23, 46, 2};
+    Sort obj;
+    sort(numbers.begin(), numbers.end(), obj);
+    for(int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    cout << obj.getCount() << endl;
+    
+    return 0;
+}
