@@ -4,60 +4,143 @@
 using namespace std;
 
 int main() {
-    using namespace std;
-    
-    set<int> stl;
+    set<int> st;
 
-    // Inserting elements
-    stl.insert(10);
-    stl.insert(20);
-    stl.insert(30);
+    // 1. Inserting elements
+    st.insert(10);
+    st.insert(20);
+    st.insert(30);
+    st.insert(20); // Duplicate elements are ignored
+    cout << "Inserted elements 10, 20, 30 into the set.\n";
 
-    // Checking if an element exists
-    if (stl.find(20) != stl.end()) {
-        // Element found
+    // 2. Checking if an element exists using find
+    if (st.find(20) != st.end()) {
+        cout << "Element 20 found in the set.\n";
+    } else {
+        cout << "Element 20 not found in the set.\n";
     }
 
-    // Erasing an element
-    stl.erase(10);
+    // 3. Erasing an element by value
+    st.erase(10);
+    cout << "Element 10 erased from the set.\n";
 
-    // Iterating through the set
-    for (const auto& element : stl) {
-        // Process element
+    // 4. Erasing an element by iterator
+    auto it = st.find(20);
+    if (it != st.end()) {
+        st.erase(it);
+        cout << "Element 20 erased using an iterator.\n";
     }
 
-    // Getting the size of the set
-    size_t size = stl.size();
+    // 5. Iterating through the set
+    cout << "Elements in the set: ";
+    for (const auto& element : st) {
+        cout << element << " ";
+    }
+    cout << endl;
 
-    // Clearing the set
-    stl.clear();
+    // 6. Getting the size of the set
+    cout << "Size of the set: " << st.size() << endl;
 
-    // Checking if the set is empty
-    if (stl.empty()) {
-        // Set is empty
+    // 7. Clearing the set
+    st.clear();
+    cout << "Set cleared.\n";
+
+    // 8. Checking if the set is empty
+    if (st.empty()) {
+        cout << "Set is empty.\n";
     }
 
-    // Inserting multiple elements
-    stl.insert({40, 50, 60});
+    // 9. Inserting multiple elements using initializer list
+    st.insert({40, 50, 60});
+    cout << "Inserted elements 40, 50, 60 into the set.\n";
 
-    // Finding the lower bound of an element
-    auto it = stl.lower_bound(50);
-    if (it != stl.end()) {
-        // Lower bound found
+    // 10. Lower bound
+    auto lower = st.lower_bound(50); // First element >= 50
+    if (lower != st.end()) {
+        cout << "Lower bound for 50: " << *lower << endl;
     }
 
-    // Finding the upper bound of an element
-    auto it2 = stl.upper_bound(50);
-    if (it2 != stl.end()) {
-        // Upper bound found
+    // 11. Upper bound
+    auto upper = st.upper_bound(50); // First element > 50
+    if (upper != st.end()) {
+        cout << "Upper bound for 50: " << *upper << endl;
     }
 
-    // Checking the maximum size of the set
-    size_t maxSize = stl.max_size();
+    // 12. Maximum size
+    cout << "Maximum size of the set: " << st.max_size() << endl;
 
-    // Swapping with another set
+    // 13. Swapping two sets
     set<int> anotherSet = {70, 80};
-    stl.swap(anotherSet);
+    st.swap(anotherSet);
+    cout << "Swapped the set with another set containing {70, 80}.\n";
+
+    cout << "Current elements in st: ";
+    for (const auto& element : st) {
+        cout << element << " ";
+    }
+    cout << endl;
+
+    // 14. Count method (always returns 0 or 1 in std::set)
+    int count = st.count(70);
+    cout << "Count of element 70: " << count << endl;
+
+    // 15. Equal range (returns a pair of iterators: lower_bound and upper_bound)
+    st = {100, 200, 300}; // Reset set
+    auto range = st.equal_range(200);
+    cout << "Equal range for 200: ";
+    if (range.first != st.end()) {
+        cout << "Lower bound: " << *range.first << " ";
+    }
+    if (range.second != st.end()) {
+        cout << "Upper bound: " << *range.second << endl;
+    }
+
+    // 16. Emplace method (directly constructs elements in-place)
+    st.emplace(400);
+    st.emplace(300); // Duplicate, will be ignored
+    cout << "After emplace, elements in st: ";
+    for (const auto& element : st) {
+        cout << element << " ";
+    }
+    cout << endl;
+
+    // 17. Key comparison function
+    auto keyComp = st.key_comp();
+    cout << "Comparing 200 and 300 using key_comp: ";
+    if (keyComp(200, 300)) {
+        cout << "200 is less than 300.\n";
+    } else {
+        cout << "200 is not less than 300.\n";
+    }
+
+    // 18. Value comparison function
+    auto valueComp = st.value_comp();
+    cout << "Comparing 200 and 300 using value_comp: ";
+    if (valueComp(200, 300)) {
+        cout << "200 is less than 300.\n";
+    } else {
+        cout << "200 is not less than 300.\n";
+    }
 
     return 0;
-}  
+}
+
+// Inserted elements 10, 20, 30 into the set.
+// Element 20 found in the set.
+// Element 10 erased from the set.
+// Element 20 erased using an iterator.
+// Elements in the set: 30
+// Size of the set: 1
+// Set cleared.
+// Set is empty.
+// Inserted elements 40, 50, 60 into the set.
+// Lower bound for 50: 50
+// Upper bound for 50: 60
+// Maximum size of the set: 230584300921369395
+// Swapped the set with another set containing {70, 80}.      
+// Current elements in st: 70 80
+// Count of element 70: 1
+// Equal range for 200: Lower bound: 200 Upper bound: 300     
+// After emplace, elements in st: 100 200 300 400
+// Comparing 200 and 300 using key_comp: 200 is less than 300.
+// Comparing 200 and 300 using value_comp: 200 is less than 300.
