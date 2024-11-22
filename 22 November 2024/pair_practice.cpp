@@ -1,3 +1,5 @@
+// If the first elements are equal, the second elements (char) are compared.
+
 #include <iostream>
 #include <utility> // For std::pair
 
