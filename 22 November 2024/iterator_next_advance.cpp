@@ -39,3 +39,9 @@ int main() {
 
     return 0;
 }
+
+// Element at position 2 using std::next: 30
+// Element after advancing iterator by 3 using std::advance: 40
+// Element at position 4 in list using std::next: 45
+// Element after advancing iterator in list by 2 using std::advance: 25
+// Element after moving back by 3 positions using std::advance: 25
