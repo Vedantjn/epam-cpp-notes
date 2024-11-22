@@ -224,7 +224,7 @@ int main() {
 using namespace std;
 
 class Sort {
-    int count;
+    int count = 0;
 public:
     bool operator()(int a, int b) {
         count++;
@@ -246,5 +246,41 @@ int main(){
     
     cout << obj.getCount() << endl;
     
+    return 0;
+}
+
+
+// Using static
+
+#include<iostream>
+#include<vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+class Sort {
+    static int count;
+public:
+    bool operator()(int a, int b) {
+        count++;
+        return a > b;
+    }
+    static int getCount() {
+        return count;
+    }
+};
+
+int Sort::count = 0;
+
+int main(){
+    vector<int>numbers = {34, 35, 23, 46, 2};
+    Sort obj;
+    sort(numbers.begin(), numbers.end(), obj);
+    for(int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    cout << Sort::getCount() << endl;
+
     return 0;
 }
