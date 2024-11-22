@@ -86,6 +86,43 @@ int main() {
         cout << "Upper bound for key 7: " << upper->first << " -> " << upper->second << endl;
     }
 
+    // 16. Using cbegin and cend
+    cout << "Using cbegin and cend:\n";
+    for (auto it = myMultimap.cbegin(); it != myMultimap.cend(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    // 17. Using rbegin and rend
+    cout << "Using rbegin and rend:\n";
+    for (auto it = myMultimap.rbegin(); it != myMultimap.rend(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    // 1. Using `begin` and `end` (normal forward iteration)
+    cout << "Elements using `begin` and `end`:\n";
+    for (auto it = myMultimap.begin(); it != myMultimap.end(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    // 2. Using `cbegin` and `cend` (constant forward iteration)
+    cout << "\nElements using `cbegin` and `cend`:\n";
+    for (auto it = myMultimap.cbegin(); it != myMultimap.cend(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    // 3. Using `rbegin` and `rend` (reverse iteration)
+    cout << "\nElements using `rbegin` and `rend`:\n";
+    for (auto it = myMultimap.rbegin(); it != myMultimap.rend(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    // 4. Using `crbegin` and `crend` (constant reverse iteration)
+    cout << "\nElements using `crbegin` and `crend`:\n";
+    for (auto it = myMultimap.crbegin(); it != myMultimap.crend(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+
     return 0;
 }
 
@@ -112,8 +149,24 @@ int main() {
 // 8: Eight
 // Lower bound for key 7: 7 -> Seven
 // Upper bound for key 7: 8 -> Eight
+// Using cbegin and cend:
+// 7: Seven
+// 8: Eight
+// Using rbegin and rend:
+// 8: Eight
+// 7: Seven
+// Elements using `begin` and `end`:
+// 7: Seven
+// 8: Eight
 
+// Elements using `cbegin` and `cend`:
+// 7: Seven
+// 8: Eight
 
+// Elements using `rbegin` and `rend`:
+// 8: Eight
+// 7: Seven
 
-// lower_bound(>=): Returns an iterator to the first element not less than the given key.
-// upper_bound(>): Returns an iterator to the first element greater than the given key.
+// Elements using `crbegin` and `crend`:
+// 8: Eight
+// 7: Seven
