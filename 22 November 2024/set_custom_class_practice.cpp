@@ -4,22 +4,19 @@
 
 using namespace std;
 
-// User-defined class
 class Person {
 public:
     string name;
     int age;
 
-    // Constructor
     Person(string n, int a) : name(n), age(a) {}
 
-    // Display function
     void display() const {
         cout << name << " (" << age << ")" << endl;
     }
 };
 
-// Custom comparator for sorting Person objects by age
+// sorting Person objects by age
 class CompareByAge {
 public:
     bool operator()(const Person& p1, const Person& p2) const {
@@ -32,33 +29,29 @@ public:
 };
 
 int main() {
-    // Declare a set of Person objects with a custom comparator
+    // set of Person objects with a custom comparator
     set<Person, CompareByAge> people;
 
-    // Insert Person objects into the set
-    people.insert(Person("Alice", 30));
-    people.insert(Person("Bob", 25));
-    people.insert(Person("Charlie", 35));
-    people.insert(Person("David", 30)); // Same age as Alice, but different name
+    people.insert(Person("Vedant", 30));
+    people.insert(Person("Vanshika", 25));
+    people.insert(Person("Samyak", 35));
+    people.insert(Person("Meenal", 30)); // Same age as Vedant, but different name
 
-    // Display the elements in the set
     cout << "People in the set (sorted by age, then name):" << endl;
     for (const auto& person : people) {
         person.display();
     }
 
     // Try inserting a duplicate (same age and name)
-    cout << "\nTrying to insert a duplicate (Bob, 25):" << endl;
-    auto result = people.insert(Person("Bob", 25));
+    cout << "\nTrying to insert a duplicate (Vanshika, 25):" << endl;
+    auto result = people.insert(Person("Vanshika", 25));
     if (!result.second) {
         cout << "Duplicate not inserted." << endl;
     }
 
-    // Insert another unique person
     cout << "\nInserting a new person (Eve, 28):" << endl;
-    people.insert(Person("Eve", 28));
+    people.insert(Person("Priyal", 28));
 
-    // Display the updated set
     cout << "\nUpdated set of people:" << endl;
     for (const auto& person : people) {
         person.display();

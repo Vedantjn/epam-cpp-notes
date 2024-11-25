@@ -138,22 +138,41 @@
 - Preprocessor
   - Macros
 
-### Week 3: C++ Programming Concepts
+### Week 4: C++ Programming Concepts
 
+- Auto keyword
 - Copy and Move semantics
 - L value, R value reference
-- Auto keyword
+
 - Smart pointers
-- Unique pointer
-- Shared pointer
-- Weak pointer
-- Cyclic dependency
+  - Unique pointer
+  - Shared pointer
+  - Weak pointer
+  - Custom deleter
+  - Cyclic dependency
+
 - Typecasting
-- Downcasting
-- Custom deleter
+  - Downcasting
+
 - STL
-- Initialiser list STL
-- Sequence containers
-- Associative containers
-- Unordered Associative containers
+  - Initialiser list STL
+  - Sequence containers
+    - Vector
+    - Array
+    - List
+    - Forward list
+    - Set
+    - Multiset
+    - Map
+    - Multimap
+  - Associative containers
+  - Unordered Associative containers
+  - Hashing
+
 - Functors
+- Callback functions
+- Lambda functions
+- Iterator
+
+### Week 4: C++ Programming Concepts
+
