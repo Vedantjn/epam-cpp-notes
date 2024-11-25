@@ -1,120 +1,120 @@
-// // // When using a range-based for loop with non-primitive or custom types, 
-// // // it's a good practice to use a reference (preferably const reference) 
-// // // to avoid unnecessary copying. Copy constructors can be costly, especially 
-// // // for complex types or containers holding large amounts of data.
+// // // // When using a range-based for loop with non-primitive or custom types, 
+// // // // it's a good practice to use a reference (preferably const reference) 
+// // // // to avoid unnecessary copying. Copy constructors can be costly, especially 
+// // // // for complex types or containers holding large amounts of data.
 
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
 
-using namespace std;
+// using namespace std;
 
-class MyClass {
-public:
-    MyClass(int val) : data(val) {}
-    MyClass(const MyClass& other) {
-        data = other.data;
-        cout << "Copy constructor called for " << data << endl;
-    }
-    int getData() const { return data; }
+// class MyClass {
+// public:
+//     MyClass(int val) : data(val) {}
+//     MyClass(const MyClass& other) {
+//         data = other.data;
+//         cout << "Copy constructor called for " << data << endl;
+//     }
+//     int getData() const { return data; }
 
-private:
-    int data;
-};
+// private:
+//     int data;
+// };
 
-int main() {
-    vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
+// int main() {
+//     vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
 
-    // Range-based for loop without reference (invokes copy constructor)
-    for (auto item : myVector) {
-        cout << "Data: " << item.getData() << endl;
-    }
+//     // Range-based for loop without reference (invokes copy constructor)
+//     for (auto item : myVector) {
+//         cout << "Data: " << item.getData() << endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
-// // Copy constructor called for 1
-// // Copy constructor called for 2
-// // Copy constructor called for 3
-// // Copy constructor called for 1
-// // Data: 1
-// // Copy constructor called for 2
-// // Data: 2
-// // Copy constructor called for 3
-// // Data: 3
+// // // Copy constructor called for 1
+// // // Copy constructor called for 2
+// // // Copy constructor called for 3
+// // // Copy constructor called for 1
+// // // Data: 1
+// // // Copy constructor called for 2
+// // // Data: 2
+// // // Copy constructor called for 3
+// // // Data: 3
+
+// // // --------------------------------------------
+
+// #include <iostream>
+// #include <vector>
+
+// using namespace std;
+
+// class MyClass {
+// public:
+//     MyClass(int val) : data(val) {}
+//     MyClass(const MyClass& other) {
+//         data = other.data;
+//         cout << "Copy constructor called for " << data << endl;
+//     }
+//     int getData() const { return data; }
+
+// private:
+//     int data;
+// };
+
+// int main() {
+//     vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
+
+//     // Range-based for loop without reference (invokes copy constructor)
+//     for (auto& item : myVector) {
+//         cout << "Data: " << item.getData() << endl;
+//     }
+
+//     return 0;
+// }
+
+// // // Copy constructor called for 1
+// // // Copy constructor called for 2
+// // // Copy constructor called for 3
+// // // Data: 1
+// // // Data: 2
+// // // Data: 3
 
 // // --------------------------------------------
 
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
 
-using namespace std;
+// using namespace std;
 
-class MyClass {
-public:
-    MyClass(int val) : data(val) {}
-    MyClass(const MyClass& other) {
-        data = other.data;
-        cout << "Copy constructor called for " << data << endl;
-    }
-    int getData() const { return data; }
+// class MyClass {
+// public:
+//     MyClass(int val) : data(val) {}
+//     MyClass(const MyClass& other) {
+//         data = other.data;
+//         cout << "Copy constructor called for " << data << endl;
+//     }
+//     int getData() const { return data; }
 
-private:
-    int data;
-};
+// private:
+//     int data;
+// };
 
-int main() {
-    vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
+// int main() {
+//     // vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
+//     vector<MyClass>myVector;
 
-    // Range-based for loop without reference (invokes copy constructor)
-    for (auto& item : myVector) {
-        cout << "Data: " << item.getData() << endl;
-    }
+//     myVector.emplace_back(MyClass(1));
+//     myVector.emplace_back(MyClass(2));
+//     myVector.emplace_back(MyClass(3));
 
-    return 0;
-}
+//     // Range-based for loop without reference (invokes copy constructor)
+//     for (const auto& item : myVector) {
+//         cout << "Data: " << item.getData() << endl;
+//     }
 
-// // Copy constructor called for 1
-// // Copy constructor called for 2
-// // Copy constructor called for 3
-// // Data: 1
-// // Data: 2
-// // Data: 3
-
-// --------------------------------------------
-
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-class MyClass {
-public:
-    MyClass(int val) : data(val) {}
-    MyClass(const MyClass& other) {
-        data = other.data;
-        cout << "Copy constructor called for " << data << endl;
-    }
-    int getData() const { return data; }
-
-private:
-    int data;
-};
-
-int main() {
-    // vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
-    vector<MyClass>myVector;
-
-    myVector.emplace_back(MyClass(1));
-    myVector.emplace_back(MyClass(2));
-    myVector.emplace_back(MyClass(3));
-
-    // Range-based for loop without reference (invokes copy constructor)
-    for (const auto& item : myVector) {
-        cout << "Data: " << item.getData() << endl;
-    }
-
-    return 0;
-}
+//     return 0;
+// }
 
 // Copy constructor called for 1
 // Copy constructor called for 2
@@ -131,23 +131,29 @@ int main() {
 using namespace std;
 
 class MyClass {
+    int data;
 public:
-    MyClass(int val) : data(val) {}
-    MyClass(const MyClass& other) {
+    MyClass(int val) : data(val) {
+        cout << "Inside parameterised const" << endl;
+    }
+        MyClass(const MyClass& other) {
         data = other.data;
         cout << "Copy constructor called for " << data << endl;
     }
+    MyClass(MyClass&& obj) {
+        data = obj.data;
+        obj.data = 0;
+        cout << "Inside move const"  << endl;
+    }
     int getData() const { return data; }
-
-private:
-    int data;
 };
 
 int main() {
-    vector<MyClass> myVector = {MyClass(1), MyClass(2), MyClass(3)};
+    vector<MyClass> myVector = {move(MyClass(1)), move(MyClass(2)), move(MyClass(3))};
 
     // Range-based for loop without reference (invokes copy constructor)
     for (const auto& item : myVector) {
+        cout << "Inside for loop" << endl;
         cout << "Data: " << item.getData() << endl;
     }
 
