@@ -25,8 +25,13 @@ public:
     }
 
     void addElement(int ele) {
-        int key = hashingkeyLogic(ele);  // Get the bucket index using the hashing key logic
-        listOfBuckets[key].push_back(ele);  // Add the element to the appropriate bucket
+        int key = hashingkeyLogic(ele); 
+        listOfBuckets[key].push_back(ele);  
+    }
+
+    void deleteElement(int ele) {
+        int key = hashingkeyLogic(ele);  
+        listOfBuckets[key].remove(ele);  
     }
 
     void printTheElements() {
@@ -50,6 +55,10 @@ int main() {
     hashTable.addElement(5);
     hashTable.addElement(10);
 
+    hashTable.printTheElements();
+
+    hashTable.deleteElement(25);  // Example of deleting an element
+    cout << "After deleting 25:" << endl;
     hashTable.printTheElements();
 
     return 0;
