@@ -27,3 +27,5 @@ int main(){
     
     return 0;
 }
+
+// Same with list
