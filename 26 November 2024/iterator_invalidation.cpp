@@ -44,3 +44,15 @@ int main() {
 
     return 0;
 }
+
+// -------------------------------------
+
+// For deque, list, insertion won't be invalidated, since it is not contigous memory.
+
+// List
+// Inserting elements does not invalidate iterators, as the memory for existing elements remains unaffected (linked lists do not store data contiguously).
+// Deleting an element invalidates the iterator pointing to that element, but other iterators remain valid.
+
+// Deque
+// Iterators remain valid if no reallocation occurs (reallocation happens when the internal block structure changes).
+// Deques are not stored in a single contiguous block of memory but in multiple smaller blocks, so front/back operations do not always affect iterators.
