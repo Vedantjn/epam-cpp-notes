@@ -56,3 +56,14 @@ int main() {
 
 // This behavior arises because std::list is a linked list, and std::deque stores elements 
 // in a block-wise, non-contiguous manner.
+
+// Reallocation in std::vector, std::deque, or std::unordered_map is the primary cause of iterator invalidation during insertion.
+// Node-based containers (std::list, std::set, etc.) are generally safer with respect to iterator validity.
+
+// Container                               Insertion                                                                    Deletion
+// std::vector                             May invalidate all iterators (reallocation) or iterators after insertion.    Iterators after deletion are invalidated.
+// std::deque                              Front/back: usually safe; middle: iterators after may be invalid.            Iterators after deletion are invalidated.
+// std::list                               Iterators are never invalidated.                                             Only the iterator pointing to the deleted element is invalidated.
+// std::set, std::multiset                 Iterators are never invalidated.                                             Only the iterator pointing to the deleted element is invalidated.
+// std::map, std::multimap                 Iterators are never invalidated.                                             Only the iterator pointing to the deleted element is invalidated.
+// std::unordered_map, std::unordered_set  Safe unless rehashing occurs.                                                Only the iterator pointing to the deleted element is invalidated.
