@@ -49,10 +49,10 @@ int main() {
 
 // For deque, list, insertion won't be invalidated, since it is not contigous memory.
 
-// List
-// Inserting elements does not invalidate iterators, as the memory for existing elements remains unaffected (linked lists do not store data contiguously).
-// Deleting an element invalidates the iterator pointing to that element, but other iterators remain valid.
+// For std::list and std::forward_list, insertion never invalidates iterators, and for 
+// std::deque, insertion/deletion at the front or back may preserve iterator validity, 
+// provided no reallocation occurs. For middle operations in std::deque, however, iterators 
+// may become invalid.
 
-// Deque
-// Iterators remain valid if no reallocation occurs (reallocation happens when the internal block structure changes).
-// Deques are not stored in a single contiguous block of memory but in multiple smaller blocks, so front/back operations do not always affect iterators.
+// This behavior arises because std::list is a linked list, and std::deque stores elements 
+// in a block-wise, non-contiguous manner.
