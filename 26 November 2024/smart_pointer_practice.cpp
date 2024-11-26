@@ -21,6 +21,7 @@ int main() {
 
     // Using shared_ptr for an array of objects
     shared_ptr<MyClass1[]> ptr = make_shared<MyClass1[]>(10);  // Array of 10 MyClass1 objects
+    // shared_ptr<MyClass1[]>ptr = new MyClass1[](10);
 
     // Since shared_ptr handles memory deallocation automatically, we don't need to call delete explicitly
 
