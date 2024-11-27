@@ -7,6 +7,7 @@
 // When you want to explicitly state that the default behavior of a special member function (constructor, destructor, etc.) is acceptable.
 // When you need to define a constructor as default in a class that already defines other constructors.
 
+// You can force the default constructor's availability even if other constructors are defined.
 
 
 #include<iostream>
