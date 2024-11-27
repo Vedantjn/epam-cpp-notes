@@ -42,6 +42,13 @@ int main(){
         cout << "4 is not found in the vector." << endl;
     }
 
+    auto it = find(vec.begin(), vec.end(), 4);
+    if (it != vec.end()) {
+        cout << "4 is found at position: " << distance(vec.begin(), it) << endl;
+    } else {
+        cout << "4 is not found in the vector." << endl;
+    }
+
     auto lower = lower_bound(vec.begin(), vec.end(), 4);
     auto upper = upper_bound(vec.begin(), vec.end(), 4);
     cout << "Lower bound of 4: " << distance(vec.begin(), lower) << endl;
@@ -51,7 +58,7 @@ int main(){
 }
 
 // 25
-// 1 2 4 5 6 7 
+// 1 2 4 5 6 7
 
 // 1 2 4 5 6 7
 
@@ -60,5 +67,6 @@ int main(){
 // Min element: 1
 // Count of 5: 1
 // 4 is not found in the vector.
-// Lower bound of 4: 0
-// Upper bound of 4: 6
+// 4 is found at position: 3
+// Lower bound of 4: 0     
+// Upper bound of 4: 6  
