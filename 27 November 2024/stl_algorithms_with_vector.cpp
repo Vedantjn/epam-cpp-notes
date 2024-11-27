@@ -49,3 +49,16 @@ int main(){
 
     return 0;
 }
+
+// 25
+// 1 2 4 5 6 7 
+
+// 1 2 4 5 6 7
+
+// 7 6 5 4 2 1
+// Max element: 7
+// Min element: 1
+// Count of 5: 1
+// 4 is not found in the vector.
+// Lower bound of 4: 0
+// Upper bound of 4: 6
