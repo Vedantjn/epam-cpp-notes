@@ -42,9 +42,17 @@ int main(){
     cout << countThree << endl;
 
     // Find if a value exists using binary search
-
     bool found = binary_search(ls.begin(), ls.end(), 6);
     cout << found << endl;
+
+    // Find a specific value using find
+    auto it = find(ls.begin(), ls.end(), 6);
+    cout << *it << endl;
+    if (it != ls.end()) {
+        cout << "Found: " << *it << endl;
+    } else {
+        cout << "Not Found" << endl;
+    }
 
     auto lower = lower_bound(ls.begin(), ls.end(), 3);
     cout << *lower << endl;
@@ -58,3 +66,17 @@ int main(){
 
     return 0;
 }
+
+// 1 3 6 78 33 3 2 34 
+// 1 2 3 3 6 33 34 78      
+// 78 34 33 6 3 3 2 1      
+// 78
+// 1
+// 160
+// 2
+// 0
+// 6
+// Found: 6
+// 78
+// 8
+// 78 34 33 6 3 3 2 1 
