@@ -8,10 +8,12 @@ class Person {
     public:
     string name;
     int age;
-    Person(string n, int a) : name(n), age(a) {}
+    string address; 
+    string occupation; 
+    Person(string n, int a, string addr, string occ) : name(n), age(a), address(addr), occupation(occ) {}
 
     void print() const {
-        cout << "Name: " << name << " and Age: " << age << endl;
+        cout << "Name: " << name << ", Age: " << age << ", Address: " << address << ", Occupation: " << occupation << endl;
     }
 
     bool operator<(const Person& obj) const {
@@ -21,12 +23,12 @@ class Person {
 
 int main(){
     vector<Person> people = {
-        Person("Vedant", 22),
-        Person("Vanshika", 22),
-        Person("Meenal", 24),
-        Person("Vegeta", 23),
-        Person("Goku", 14),
-        Person("Varun", 26),
+        Person("Vedant", 22, "123 Street A", "Engineer"),
+        Person("Vanshika", 22, "456 Street B", "Doctor"),
+        Person("Meenal", 24, "789 Street C", "Artist"),
+        Person("Vegeta", 23, "101 Street D", "Warrior"),
+        Person("Goku", 14, "202 Street E", "Student"),
+        Person("Varun", 26, "303 Street F", "Teacher"),
     };
 
     sort(people.begin(), people.end());
@@ -72,35 +74,10 @@ int main(){
     cout << "\nTotal age: " << totalAge << endl;
 
     sort(people.begin(), people.end());
-    bool isPresent = binary_search(people.begin(), people.end(), Person("", 22), [](const Person& p1, const Person& p2) {
+    bool isPresent = binary_search(people.begin(), people.end(), Person("", 22, "", ""), [](const Person& p1, const Person& p2) {
         return p1.age < p2.age;
     });
     cout << "\nIs someone aged 22 present? " << (isPresent ? "Yes" : "No") << endl;
     
     return 0;
 }
-
-// Name: Goku and Age: 14
-// Name: Vedant and Age: 22
-// Name: Vanshika and Age: 22
-// Name: Vegeta and Age: 23
-// Name: Meenal and Age: 24
-// Name: Varun and Age: 26
-
-// Name: Goku and Age: 14
-// Name: Meenal and Age: 24
-// Name: Vanshika and Age: 22
-// Name: Varun and Age: 26
-// Name: Vedant and Age: 22
-// Name: Vegeta and Age: 23
-
-
-// Found person: Name: Vegeta and Age: 23
-
-// Number of people older than 25: 1
-
-// Oldest person: Name: Varun and Age: 26
-
-// Total age: 131
-
-// Is someone aged 22 present? Yes
