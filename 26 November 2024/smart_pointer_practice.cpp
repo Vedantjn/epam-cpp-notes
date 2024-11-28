@@ -1,5 +1,5 @@
 #include <iostream>
-#include <memory>  // For shared pointers
+#include <memory>  
 
 using namespace std;
 
@@ -15,15 +15,16 @@ public:
 };
 
 int main() {
-    // Using shared_ptr for a single object
     shared_ptr<MyClass1> obj = make_shared<MyClass1>(10);
-    obj->printvalue();  // Print the value of obj
+    obj->printvalue();  
 
-    // Using shared_ptr for an array of objects
-    shared_ptr<MyClass1[]> ptr = make_shared<MyClass1[]>(10);  // Array of 10 MyClass1 objects
-    // shared_ptr<MyClass1[]>ptr = new MyClass1[](10);
+    // shared_ptr<MyClass1[]> ptr = make_shared<MyClass1[]>(10);
 
-    // Since shared_ptr handles memory deallocation automatically, we don't need to call delete explicitly
+    shared_ptr<MyClass1[]> ptr1(new MyClass1[10], default_delete<MyClass1[]>());
+
+    shared_ptr<MyClass1[]> ptr2(new MyClass1[10], [](MyClass1* p) {
+        delete[] p; 
+    });
 
     return 0;
 }
