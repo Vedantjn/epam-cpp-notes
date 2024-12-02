@@ -187,3 +187,8 @@
   - Context Switching
   - Mutex
 
+### Week 5: C++ Programming Concepts
+
+- Join, Detach
+- Lock Guard
+- Threds, Handles
