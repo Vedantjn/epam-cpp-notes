@@ -174,5 +174,16 @@
 - Lambda functions
 - Iterator
 
-### Week 4: C++ Programming Concepts
+### Week 5: C++ Programming Concepts
+
+- Iterator Invalidation
+- Function Pointer
+- Custom Smart Pointer
+- Custom deleter
+- Callback Functions
+- Typedef
+- Iterator next, advance
+- Multithreading
+  - Context Switching
+  - Mutex
 
