@@ -191,4 +191,4 @@
 
 - Join, Detach
 - Lock Guard
-- Threds, Handles
+- Threads, Handles
