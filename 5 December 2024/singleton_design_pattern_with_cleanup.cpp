@@ -62,48 +62,46 @@
 // // ----------------------------------------------
   
 #include <iostream>
-#include <memory> // For std::shared_ptr and std::unique_ptr
-
+#include <memory>  // For std::unique_ptr
+#include <mutex>   // For std::mutex
+ 
 using namespace std;
-
+ 
 class Singleton {
 private:
-    static shared_ptr<Singleton> instance; // Shared pointer to manage the instance
-
-    // Private constructor to prevent direct instantiation
+    static unique_ptr<Singleton> instance;
+    static mutex mtx;  // Mutex for thread safety
+ 
     Singleton() {
-        cout << "Singleton Instance Created.\n";
+        cout << "Singleton created!" << endl;
     }
-
-    // Private destructor
-    ~Singleton() {
-        cout << "Singleton Instance Destroyed.\n";
-    }
-
+ 
 public:
-    // Delete copy constructor and assignment operator
-    Singleton(const Singleton&) = delete;
-    Singleton& operator=(const Singleton&) = delete;
-
-    // Public static method to access the instance
-    static shared_ptr<Singleton> getInstance() {
-        if (!instance) {
-            instance = shared_ptr<Singleton>(new Singleton());
+    static Singleton* getInstance() {
+        // Lock the mutex to ensure thread safety during initialization
+        lock_guard<mutex> lock(mtx);
+        if (instance == nullptr) {
+            instance = make_unique<Singleton>();
         }
-        return instance;
+        return instance.get();  // Returning the raw pointer to the object because can't return unique ptr when return type is a raw pointer , by using unique ptr there may be chanches that it may transfer the ownership
     }
-
-    void doWork() {
-        cout << "Singleton is doing work.\n";
+ 
+    void showMessage() {
+       cout << "Hello from Singleton!" << endl;
     }
+ 
+    Singleton(const Singleton&) = delete;  // Prevent copying
+    Singleton& operator=(const Singleton&) = delete;  // Prevent assignment
 };
-
-shared_ptr<Singleton> Singleton::instance = nullptr;
-
+ 
+// Initialize the static members
+unique_ptr<Singleton> Singleton::instance = nullptr;
+mutex Singleton::mtx;
+ 
 int main() {
-    auto singleton = Singleton::getInstance();
-    singleton->doWork();
-
-    // Cleanup is handled automatically when the shared pointer goes out of scope
+    Singleton* singleton = Singleton::getInstance();
+    singleton->showMessage();
+ 
+    // No need to manually delete the instance, unique_ptr will take care of that
     return 0;
 }
