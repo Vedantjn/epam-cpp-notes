@@ -35,7 +35,6 @@ public:
         return instance;
     }
 
-    // Example method
     void showMessage() {
         cout << "Hello from Singleton!" << endl;
     }
