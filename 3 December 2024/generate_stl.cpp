@@ -15,7 +15,25 @@ int main() {
 
     // Generate values using a lambda function
     int counter = 1;
-    generate(s.begin(), s.end(), [&counter]() { return counter++; });
+    // generate(s.begin(), s.end(), [counter]() { // r value
+    //     int x = counter;
+    //     // x++;
+    //     return x++;
+    // });
+
+    auto x = [](int y) {
+        return y++;
+    }; 
+
+    generate(s.begin(), s.end(), [](int x) {
+        return x++;
+    });
+
+    // generate(s.begin(), s.end(), [&counter]() {
+    //     return counter++;
+    // });
+
+    cout << counter << endl;
 
     cout << "After Generate (Counter): ";
     for (int value : s) {
