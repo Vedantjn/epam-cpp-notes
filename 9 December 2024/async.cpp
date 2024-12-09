@@ -42,3 +42,11 @@ int main() {
 // Doing something else while computation is in progress...
 // Result: 100
 // Doing something else while computation is in progress... 
+
+
+
+// Comparison: std::async vs std::thread
+// Feature                 std::async                               std::thread
+// Result management       Automatically provides a std::future.    Requires manual synchronization.
+// Thread management       Automatically manages thread lifecycle.  User must manage thread joins/detach.
+// Laziness                Supports deferred execution.             Executes immediately.
