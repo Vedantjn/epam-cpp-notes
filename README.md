@@ -187,8 +187,23 @@
   - Context Switching
   - Mutex
 
-### Week 5: C++ Programming Concepts
+### Week 6: C++ Programming Concepts
 
 - Join, Detach
 - Lock Guard
 - Threads, Handles
+- Bitset
+- Copy, Fill, Generate, Transform, Remove if, Swap, Unique
+- Design Patterns
+  - Singleton Design Pattern
+- Template Meta Programming
+- Thread Local
+- Hardware Concurrency
+
+### Week 7: C++ Programming Concepts
+
+- Async, Future
+- Conditional Variable
+- Unique Lock
+- Socket Programming
+- Observer Pattern
