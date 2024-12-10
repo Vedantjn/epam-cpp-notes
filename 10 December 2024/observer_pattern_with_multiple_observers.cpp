@@ -1,3 +1,5 @@
+// Defines 1-to-n dependencies between objects so that changes to one object cause all dependent objects to be notified.
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
